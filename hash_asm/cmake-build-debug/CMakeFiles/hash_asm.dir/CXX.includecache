@@ -18,17 +18,17 @@ cmath
 cstdlib
 -
 
-/home/arv1k/CLionProjects/hash_asm/hash_asm.cpp
+/home/arv1k/CLionProjects/2_sem/hash_asm/hash_asm.cpp
 hash_asm.h
-/home/arv1k/CLionProjects/hash_asm/hash_asm.h
+/home/arv1k/CLionProjects/2_sem/hash_asm/hash_asm.h
 
-/home/arv1k/CLionProjects/hash_asm/hash_asm.h
+/home/arv1k/CLionProjects/2_sem/hash_asm/hash_asm.h
 list/list.h
-/home/arv1k/CLionProjects/hash_asm/list/list.h
-../1_sem/make_enc/enc.h
+/home/arv1k/CLionProjects/2_sem/hash_asm/list/list.h
+../../1_sem/make_enc/enc.h
 /home/arv1k/CLionProjects/1_sem/make_enc/enc.h
 
-/home/arv1k/CLionProjects/hash_asm/list/list.h
+/home/arv1k/CLionProjects/2_sem/hash_asm/list/list.h
 cstdio
 -
 cstdlib
@@ -41,8 +41,4 @@ cstring
 -
 fstream
 -
-
-/home/arv1k/CLionProjects/hash_asm/main.cpp
-hash_asm.h
-/home/arv1k/CLionProjects/hash_asm/hash_asm.h
 

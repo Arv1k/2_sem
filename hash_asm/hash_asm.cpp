@@ -1,30 +1,11 @@
 #include "hash_asm.h"
 
-int ASCII_sum(const char* string, size_t num_sym) {
-    assert(string);
 
-    int hash_sum = 0;
-
-    for (int i = 0; i < num_sym; i++)
-        hash_sum += *(string);
-
-    return hash_sum;
-}
-
-int ASCII_sum_div_len(const char* string, size_t num_sym) {
-    assert(string);
-
-    int hash_sum = ASCII_sum(string, num_sym);
-
-    if (!hash_sum) return 0;
-
-    return hash_sum / num_sym;
-}
 
 int GNU_hash(const char* string, char stopper) {
-    assert(string);
+    //assert(string);
 
-    int h = 5381;
+    register int h = 5381;
 
     for (unsigned char c = *string; c != stopper; c = *++string)
         h = h * 33 + c;
@@ -36,34 +17,26 @@ int GNU_hash(const char* string, char stopper) {
 //----------------------------------------------------------------------------------------------------------------------
 
 /**
- * 72,41
+ * ~0,29 sec
  * @param hash_table
  * @param word
- * @return
+ * @return6
  */
 char* find_word(const list* hash_table, const char* word) {
     //assert(hash_table);
-    //  assert(word);
+    //assert(word);
 
     int hash_sum = GNU_hash(word, '\0'); //!
-
-    //list cur_list = hash_table[hash_sum];
 
     size_t cur_count = hash_table[hash_sum].size(); //!
     list_elem* cur_elem = hash_table[hash_sum].head(); //!
 
-//    const char* tmp_word = nullptr;
-//    char* tmp_Info = nullptr;
+    return search_comp(cur_count, cur_elem, word);
+}
 
-    while(cur_count) {
-//        tmp_Info = cur_elem->Info;
-//        tmp_word = word;
-
-        int i = 0;
-
-//        while(word[i] && word[i] == cur_elem->Info[i])
-//            i++;
-
+char* search_comp(size_t cur_count, list_elem* cur_elem, const char* word) {
+    /*while(cur_count) {
+        register int i = 0;
 
         while(word[i]) {
             if (word[i] == cur_elem->Info[i]) {
@@ -82,89 +55,55 @@ char* find_word(const list* hash_table, const char* word) {
         else return cur_elem->Info;
     }
 
-    return nullptr;
+    return nullptr;*/
+
+
+
+    asm(   ".L16:\n"
+           "\tcmpq\t$0, -16(%rbp)\n"
+           "\tje\t.L8\n"
+           "\tmovl\t$0, %ebx\n"
+           ".L12:\n"
+           "\tmovslq\t%ebx, %rdx\n"
+           "\tmovq\t-32(%rbp), %rax\n"
+           "\taddq\t%rdx, %rax\n"
+           "\tmovzbl\t(%rax), %eax\n"
+           "\ttestb\t%al, %al\n"
+           "\tje\t.L9\n"
+           "\tmovslq\t%ebx, %rdx\n"
+           "\tmovq\t-32(%rbp), %rax\n"
+           "\taddq\t%rdx, %rax\n"
+           "\tmovzbl\t(%rax), %edx\n"
+           "\tmovq\t-24(%rbp), %rax\n"
+           "\tmovq\t(%rax), %rcx\n"
+           "\tmovslq\t%ebx, %rax\n"
+           "\taddq\t%rcx, %rax\n"
+           "\tmovzbl\t(%rax), %eax\n"
+           "\tcmpb\t%al, %dl\n"
+           "\tjne\t.L18\n"
+           "\taddl\t$1, %ebx\n"
+           "\tnop\n"
+           "\tjmp\t.L12\n"
+           ".L18:\n"
+           "\tnop\n"
+           ".L9:\n"
+           "\tmovslq\t%ebx, %rdx\n"
+           "\tmovq\t-32(%rbp), %rax\n"
+           "\taddq\t%rdx, %rax\n"
+           "\tmovzbl\t(%rax), %eax\n"
+           "\ttestb\t%al, %al\n"
+           "\tje\t.L13\n"
+           "\tsubq\t$1, -16(%rbp)\n"
+           "\tmovq\t-24(%rbp), %rax\n"
+           "\tmovq\t8(%rax), %rax\n"
+           "\tmovq\t%rax, -24(%rbp)\n"
+           "\tjmp\t.L16\n"
+           ".L13:\n"
+           "\tmovq\t-24(%rbp), %rax\n"
+           "\tmovq\t(%rax), %rax\n"
+           "\tjmp\t.L15\n"
+           ".L8:\n"
+           "\tmovl\t$0, %eax\n"
+           ".L15:\n"
+           "\tpopq\t%rbx\n");
 }
-
-
-/**
- * 88,17
- * Better, but not the best
- */
-
-/*char* find_word(const list* hash_table, const char* word) {
-    //assert(hash_table);
-    //assert(word);
-
-    int hash_sum = GNU_hash(word, '\0');
-
-    //list cur_list = hash_table[hash_sum];
-
-    size_t cur_count = hash_table[hash_sum].size();
-    list_elem* cur_elem = hash_table[hash_sum].head();
-
-    const char* tmp_word = nullptr;
-    char* tmp_Info = nullptr;
-
-    while(cur_count) {
-        tmp_Info = cur_elem->Info;
-        tmp_word = word;
-
-        while(*tmp_word) {
-            if (*tmp_word == *tmp_Info) {
-                tmp_word++;
-                tmp_Info++;
-                continue;
-            }
-
-            break;
-        }
-
-        if (*tmp_word) {
-            cur_count--;
-            cur_elem = cur_elem->Next;
-        }
-
-        else return cur_elem->Info;
-    }
-
-    return nullptr;
-}*/
-
-/** 94,56
- * Too long
- */
-/*char* find_word(const list* hash_table, const char* word) {
-    assert(hash_table);
-    assert(word);
-
-    int hash_sum = GNU_hash(word, '\0');
-
-    size_t cur_count = hash_table[hash_sum].size();
-    list_elem* cur_elem = hash_table[hash_sum].head();
-
-    char* tmp_Info = nullptr;
-
-    size_t word_length = strchr(word, '\0') - word;
-    int i = 0;
-
-    while(cur_count) {
-        tmp_Info = cur_elem->Info;
-
-        i = 0;
-        for (; i < word_length; i++) {
-            if (word[i] == tmp_Info[i])
-                continue;
-
-            break;
-        }
-
-        if (i != word_length) {
-            cur_count--;
-            cur_elem = cur_elem->Next;
-        }
-
-        else return cur_elem->Info;
-    }
-
-    return nullptr;
-}*/

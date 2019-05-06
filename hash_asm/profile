@@ -2,21 +2,21 @@ Flat profile:
 
 Each sample counts as 0.01 seconds.
   %   cumulative   self              self     total           
- time   seconds   seconds    calls  ns/call  ns/call  name    
- 80.07      0.28     0.28  6513000    43.03    52.24  find_word(list const*, char const*)
- 14.30      0.33     0.05  6519512     7.68     7.68  GNU_hash(char const*, char)
-  2.86      0.34     0.01  6513000     1.54     1.54  list::size() const
-  2.86      0.35     0.01                             main
-  0.00      0.35     0.00  6513000     0.00     0.00  list::head() const
-  0.00      0.35     0.00     6512     0.00     0.00  list::push_front(char*)
-  0.00      0.35     0.00     6512     0.00     0.00  list::pop_back()
-  0.00      0.35     0.00     1000     0.00     0.00  list::list_check()
-  0.00      0.35     0.00     1000     0.00     0.00  list::list()
-  0.00      0.35     0.00     1000     0.00     0.00  list::~list()
-  0.00      0.35     0.00        2     0.00     0.00  numberSymbol(char const*, char)
-  0.00      0.35     0.00        2     0.00     0.00  Fill_the_Buffer(char const*, unsigned int*)
-  0.00      0.35     0.00        2     0.00     0.00  Fill_the_Addresses(char const*)
-  0.00      0.35     0.00        2     0.00     0.00  Size(_IO_FILE*)
+ time   seconds   seconds    calls  us/call  us/call  name    
+ 75.06      0.03     0.03   651300     0.05     0.05  search_comp(unsigned long, list_elem*, char const*)
+ 25.02      0.04     0.01     1000    10.01    10.01  list::~list()
+  0.00      0.04     0.00   657812     0.00     0.00  GNU_hash(char const*, char)
+  0.00      0.04     0.00   651300     0.00     0.05  find_word(list const*, char const*)
+  0.00      0.04     0.00   651300     0.00     0.00  list::head() const
+  0.00      0.04     0.00   651300     0.00     0.00  list::size() const
+  0.00      0.04     0.00     6512     0.00     0.00  list::push_front(char*)
+  0.00      0.04     0.00     6512     0.00     0.00  list::pop_back()
+  0.00      0.04     0.00     1000     0.00     0.00  list::list_check()
+  0.00      0.04     0.00     1000     0.00     0.00  list::list()
+  0.00      0.04     0.00        2     0.00     0.00  numberSymbol(char const*, char)
+  0.00      0.04     0.00        2     0.00     0.00  Fill_the_Buffer(char const*, unsigned int*)
+  0.00      0.04     0.00        2     0.00     0.00  Fill_the_Addresses(char const*)
+  0.00      0.04     0.00        2     0.00     0.00  Size(_IO_FILE*)
 
  %         the percentage of the total running time of the
 time       program used by this function.
@@ -54,65 +54,69 @@ notice and this notice are preserved.
 		     Call graph (explanation follows)
 
 
-granularity: each sample hit covers 2 byte(s) for 2.85% of 0.35 seconds
+granularity: each sample hit covers 2 byte(s) for 24.98% of 0.04 seconds
 
 index % time    self  children    called     name
                                                  <spontaneous>
-[1]    100.0    0.01    0.34                 main [1]
-                0.28    0.06 6513000/6513000     find_word(list const*, char const*) [2]
-                0.00    0.00    6512/6519512     GNU_hash(char const*, char) [3]
-                0.00    0.00    6512/6512        list::push_front(char*) [12]
-                0.00    0.00    1000/1000        list::list() [15]
-                0.00    0.00    1000/1000        list::~list() [16]
-                0.00    0.00       2/2           Fill_the_Addresses(char const*) [19]
+[1]    100.0    0.00    0.04                 main [1]
+                0.00    0.03  651300/651300      find_word(list const*, char const*) [3]
+                0.01    0.00    1000/1000        list::~list() [4]
+                0.00    0.00    6512/6512        list::push_front(char*) [14]
+                0.00    0.00    6512/657812      GNU_hash(char const*, char) [11]
+                0.00    0.00    1000/1000        list::list() [17]
+                0.00    0.00       2/2           Fill_the_Addresses(char const*) [20]
 -----------------------------------------------
-                0.28    0.06 6513000/6513000     main [1]
-[2]     97.1    0.28    0.06 6513000         find_word(list const*, char const*) [2]
-                0.05    0.00 6513000/6519512     GNU_hash(char const*, char) [3]
-                0.01    0.00 6513000/6513000     list::size() const [4]
-                0.00    0.00 6513000/6513000     list::head() const [11]
+                0.03    0.00  651300/651300      find_word(list const*, char const*) [3]
+[2]     75.0    0.03    0.00  651300         search_comp(unsigned long, list_elem*, char const*) [2]
 -----------------------------------------------
-                0.00    0.00    6512/6519512     main [1]
-                0.05    0.00 6513000/6519512     find_word(list const*, char const*) [2]
-[3]     14.3    0.05    0.00 6519512         GNU_hash(char const*, char) [3]
+                0.00    0.03  651300/651300      main [1]
+[3]     75.0    0.00    0.03  651300         find_word(list const*, char const*) [3]
+                0.03    0.00  651300/651300      search_comp(unsigned long, list_elem*, char const*) [2]
+                0.00    0.00  651300/657812      GNU_hash(char const*, char) [11]
+                0.00    0.00  651300/651300      list::size() const [13]
+                0.00    0.00  651300/651300      list::head() const [12]
 -----------------------------------------------
-                0.01    0.00 6513000/6513000     find_word(list const*, char const*) [2]
-[4]      2.9    0.01    0.00 6513000         list::size() const [4]
+                0.01    0.00    1000/1000        main [1]
+[4]     25.0    0.01    0.00    1000         list::~list() [4]
+                0.00    0.00    6512/6512        list::pop_back() [15]
+                0.00    0.00    1000/1000        list::list_check() [16]
 -----------------------------------------------
-                0.00    0.00 6513000/6513000     find_word(list const*, char const*) [2]
-[11]     0.0    0.00    0.00 6513000         list::head() const [11]
+                0.00    0.00    6512/657812      main [1]
+                0.00    0.00  651300/657812      find_word(list const*, char const*) [3]
+[11]     0.0    0.00    0.00  657812         GNU_hash(char const*, char) [11]
+-----------------------------------------------
+                0.00    0.00  651300/651300      find_word(list const*, char const*) [3]
+[12]     0.0    0.00    0.00  651300         list::head() const [12]
+-----------------------------------------------
+                0.00    0.00  651300/651300      find_word(list const*, char const*) [3]
+[13]     0.0    0.00    0.00  651300         list::size() const [13]
 -----------------------------------------------
                 0.00    0.00    6512/6512        main [1]
-[12]     0.0    0.00    0.00    6512         list::push_front(char*) [12]
+[14]     0.0    0.00    0.00    6512         list::push_front(char*) [14]
 -----------------------------------------------
-                0.00    0.00    6512/6512        list::~list() [16]
-[13]     0.0    0.00    0.00    6512         list::pop_back() [13]
+                0.00    0.00    6512/6512        list::~list() [4]
+[15]     0.0    0.00    0.00    6512         list::pop_back() [15]
 -----------------------------------------------
-                0.00    0.00    1000/1000        list::~list() [16]
-[14]     0.0    0.00    0.00    1000         list::list_check() [14]
------------------------------------------------
-                0.00    0.00    1000/1000        main [1]
-[15]     0.0    0.00    0.00    1000         list::list() [15]
+                0.00    0.00    1000/1000        list::~list() [4]
+[16]     0.0    0.00    0.00    1000         list::list_check() [16]
 -----------------------------------------------
                 0.00    0.00    1000/1000        main [1]
-[16]     0.0    0.00    0.00    1000         list::~list() [16]
-                0.00    0.00    6512/6512        list::pop_back() [13]
-                0.00    0.00    1000/1000        list::list_check() [14]
+[17]     0.0    0.00    0.00    1000         list::list() [17]
 -----------------------------------------------
-                0.00    0.00       2/2           Fill_the_Buffer(char const*, unsigned int*) [18]
-[17]     0.0    0.00    0.00       2         numberSymbol(char const*, char) [17]
+                0.00    0.00       2/2           Fill_the_Buffer(char const*, unsigned int*) [19]
+[18]     0.0    0.00    0.00       2         numberSymbol(char const*, char) [18]
 -----------------------------------------------
-                0.00    0.00       2/2           Fill_the_Addresses(char const*) [19]
-[18]     0.0    0.00    0.00       2         Fill_the_Buffer(char const*, unsigned int*) [18]
-                0.00    0.00       2/2           Size(_IO_FILE*) [20]
-                0.00    0.00       2/2           numberSymbol(char const*, char) [17]
+                0.00    0.00       2/2           Fill_the_Addresses(char const*) [20]
+[19]     0.0    0.00    0.00       2         Fill_the_Buffer(char const*, unsigned int*) [19]
+                0.00    0.00       2/2           Size(_IO_FILE*) [21]
+                0.00    0.00       2/2           numberSymbol(char const*, char) [18]
 -----------------------------------------------
                 0.00    0.00       2/2           main [1]
-[19]     0.0    0.00    0.00       2         Fill_the_Addresses(char const*) [19]
-                0.00    0.00       2/2           Fill_the_Buffer(char const*, unsigned int*) [18]
+[20]     0.0    0.00    0.00       2         Fill_the_Addresses(char const*) [20]
+                0.00    0.00       2/2           Fill_the_Buffer(char const*, unsigned int*) [19]
 -----------------------------------------------
-                0.00    0.00       2/2           Fill_the_Buffer(char const*, unsigned int*) [18]
-[20]     0.0    0.00    0.00       2         Size(_IO_FILE*) [20]
+                0.00    0.00       2/2           Fill_the_Buffer(char const*, unsigned int*) [19]
+[21]     0.0    0.00    0.00       2         Size(_IO_FILE*) [21]
 -----------------------------------------------
 
  This table describes the call tree of the program, and was sorted by
@@ -205,8 +209,8 @@ notice and this notice are preserved.
 
 Index by function name
 
-  [17] numberSymbol(char const*, char) [2] find_word(list const*, char const*) [16] list::~list()
-  [18] Fill_the_Buffer(char const*, unsigned int*) [14] list::list_check() [11] list::head() const
-  [19] Fill_the_Addresses(char const*) [12] list::push_front(char*) [4] list::size() const
-  [20] Size(_IO_FILE*)        [13] list::pop_back()        [1] main
-   [3] GNU_hash(char const*, char) [15] list::list()
+   [2] search_comp(unsigned long, list_elem*, char const*) [11] GNU_hash(char const*, char) [17] list::list()
+  [18] numberSymbol(char const*, char) [3] find_word(list const*, char const*) [4] list::~list()
+  [19] Fill_the_Buffer(char const*, unsigned int*) [16] list::list_check() [12] list::head() const
+  [20] Fill_the_Addresses(char const*) [14] list::push_front(char*) [13] list::size() const
+  [21] Size(_IO_FILE*)        [15] list::pop_back()

@@ -8,6 +8,14 @@ ALLCOMPFLAGS=-g -std=c++14 -Werror -fmax-errors=1 -Wall -Wextra -Weffc++ -Waggre
 all: hash_table
 	./hash_table > /dev/null
 
+1: main.o list.o enc.o
+	$(CPP) -pg -O1 -Wall main.o list.o enc.o hash_asm1.cpp -o hash_table
+	./hash_table > /dev/null
+
+2: main.o list.o enc.o
+	$(CPP) -pg -O1 -Wall main.o list.o enc.o hash_asm2.cpp -o hash_table
+	./hash_table > /dev/null
+
 profile: hash_table
 	gprof ./hash_table > profile
 	vim profile
@@ -21,12 +29,11 @@ main.o: main.cpp
 list.o: list/list.cpp
 	$(CPP) $(CPPFLAGS) list/list.cpp
 
-enc.o: ../1_sem/make_enc/enc.cpp
-	$(CPP) $(CPPFLAGS) ../1_sem/make_enc/enc.cpp
+enc.o: ../../1_sem/make_enc/enc.cpp
+	$(CPP) $(CPPFLAGS) ../../1_sem/make_enc/enc.cpp
 
 hash_asm.o: hash_asm.cpp
 	$(CPP) $(CPPFLAGS) hash_asm.cpp
 
 clean:
 	rm -rf *.o
-	rm -rf *.s

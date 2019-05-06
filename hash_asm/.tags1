@@ -1,0 +1,9 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	0	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+GNU_hash	/home/arv1k/CLionProjects/2_sem/hash_asm/hash_asm.cpp	/^int GNU_hash(const char* string, char stopper) {$/;"	function	line:5	signature:(const char* string, char stopper)
+find_word	/home/arv1k/CLionProjects/2_sem/hash_asm/hash_asm.cpp	/^char* find_word(const list* hash_table, const char* word) {$/;"	function	line:25	signature:(const list* hash_table, const char* word)
+search_comp	/home/arv1k/CLionProjects/2_sem/hash_asm/hash_asm.cpp	/^char* search_comp(size_t cur_count, list_elem* cur_elem, const char* word) {$/;"	function	line:37	signature:(size_t cur_count, list_elem* cur_elem, const char* word)

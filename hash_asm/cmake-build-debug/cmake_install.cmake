@@ -1,4 +1,4 @@
-# Install script for directory: /home/arv1k/CLionProjects/hash_asm
+# Install script for directory: /home/arv1k/CLionProjects/2_sem/hash_asm
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/arv1k/CLionProjects/hash_asm/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/arv1k/CLionProjects/2_sem/hash_asm/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -15,7 +15,7 @@ int main(int argc, char* argv[]) {
     str* tmpfull = dictfull;
 
 
-    int hash_sum = 0;   
+    int hash_sum = 0;
     while(tmpfull->String) {
         hash_sum = GNU_hash(tmpfull->String, ':');
 
@@ -30,7 +30,7 @@ int main(int argc, char* argv[]) {
     str* tmp = dict;
 
 
-    for (int i = 0; i < 1000; i++) {
+    for (int i = 0; i < 100; i++) {
         char *hey = nullptr;
         while (tmp->String) {
             hey = find_word(hash_table, tmp->String);
