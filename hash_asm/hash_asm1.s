@@ -1,191 +1,193 @@
 	.file	"hash_asm1.cpp"
 	.text
-	.section	.rodata
-	.type	_ZStL19piecewise_construct, @object
-	.size	_ZStL19piecewise_construct, 1
-_ZStL19piecewise_construct:
-	.zero	1
-	.align 4
-	.type	_ZL9yad_count, @object
-	.size	_ZL9yad_count, 4
-_ZL9yad_count:
-	.long	119
-	.text
+	.p2align 4,,15
 	.globl	_Z8GNU_hashPKcc
 	.type	_Z8GNU_hashPKcc, @function
 _Z8GNU_hashPKcc:
-.LFB1841:
+.LFB1939:
 	.cfi_startproc
-	pushq	%rbp
-	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	movq	%rsp, %rbp
-	.cfi_def_cfa_register 6
-	movq	%rdi, -24(%rbp)
-	movl	%esi, %eax
-	movb	%al, -28(%rbp)
-	movl	$5381, -4(%rbp)
-	movq	-24(%rbp), %rax
-	movzbl	(%rax), %eax
-	movb	%al, -5(%rbp)
+	movzbl	(%rdi), %eax
+	movsbl	%sil, %esi
+	cmpl	%esi, %eax
+	je	.L4
+	movl	$5381, %ecx
+	.p2align 4,,10
+	.p2align 3
 .L3:
-	movzbl	-5(%rbp), %edx
-	movsbl	-28(%rbp), %eax
-	cmpl	%eax, %edx
-	je	.L2
-	movl	-4(%rbp), %edx
-	movl	%edx, %eax
-	sall	$5, %eax
-	addl	%eax, %edx
-	movzbl	-5(%rbp), %eax
-	addl	%edx, %eax
-	movl	%eax, -4(%rbp)
-	addq	$1, -24(%rbp)
-	movq	-24(%rbp), %rax
-	movzbl	(%rax), %eax
-	movb	%al, -5(%rbp)
-	jmp	.L3
-.L2:
-	movl	-4(%rbp), %ecx
-	movl	$274877907, %edx
+	movl	%ecx, %edx
+	addq	$1, %rdi
+	sall	$5, %edx
+	addl	%edx, %ecx
+	addl	%eax, %ecx
+	movzbl	(%rdi), %eax
+	cmpl	%esi, %eax
+	jne	.L3
 	movl	%ecx, %eax
+	movl	$274877907, %edx
 	imull	%edx
-	sarl	$6, %edx
 	movl	%ecx, %eax
 	sarl	$31, %eax
+	sarl	$6, %edx
 	subl	%eax, %edx
-	movl	%edx, %eax
-	imull	$1000, %eax, %eax
-	subl	%eax, %ecx
 	movl	%ecx, %eax
-	movl	%eax, -4(%rbp)
-	movl	-4(%rbp), %eax
-	cltd
-	movl	%edx, %eax
-	xorl	-4(%rbp), %eax
+	imull	$1000, %edx, %edx
 	subl	%edx, %eax
-	popq	%rbp
-	.cfi_def_cfa 7, 8
+	cltd
+	xorl	%edx, %eax
+	subl	%edx, %eax
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L4:
+	movl	$381, %eax
 	ret
 	.cfi_endproc
-.LFE1841:
+.LFE1939:
 	.size	_Z8GNU_hashPKcc, .-_Z8GNU_hashPKcc
+	.p2align 4,,15
 	.globl	_Z9find_wordPK4listPKc
 	.type	_Z9find_wordPK4listPKc, @function
 _Z9find_wordPK4listPKc:
-.LFB1842:
+.LFB1940:
 	.cfi_startproc
-	pushq	%rbp
-	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	movq	%rsp, %rbp
-	.cfi_def_cfa_register 6
-	subq	$48, %rsp
-	movq	%rdi, -40(%rbp)
-	movq	%rsi, -48(%rbp)
-	movq	-48(%rbp), %rax
-	movl	$0, %esi
-	movq	%rax, %rdi
-	call	_Z8GNU_hashPKcc
-	movl	%eax, -20(%rbp)
-	movl	-20(%rbp), %eax
-	movslq	%eax, %rdx
-	movq	%rdx, %rax
-	addq	%rax, %rax
-	addq	%rdx, %rax
-	salq	$3, %rax
-	movq	%rax, %rdx
-	movq	-40(%rbp), %rax
-	addq	%rdx, %rax
-	movq	%rax, %rdi
-	call	_ZNK4list4sizeEv@PLT
-	movq	%rax, -16(%rbp)
-	movl	-20(%rbp), %eax
-	movslq	%eax, %rdx
-	movq	%rdx, %rax
-	addq	%rax, %rax
-	addq	%rdx, %rax
-	salq	$3, %rax
-	movq	%rax, %rdx
-	movq	-40(%rbp), %rax
-	addq	%rdx, %rax
-	movq	%rax, %rdi
-	call	_ZNK4list4headEv@PLT
-	movq	%rax, -8(%rbp)
-	movq	-48(%rbp), %rdx
-	movq	-8(%rbp), %rcx
-	movq	-16(%rbp), %rax
-	movq	%rcx, %rsi
-	movq	%rax, %rdi
-	call	_Z11search_compmP9list_elemPKc
-	leave
-	.cfi_def_cfa 7, 8
-	ret
-	.cfi_endproc
-.LFE1842:
-	.size	_Z9find_wordPK4listPKc, .-_Z9find_wordPK4listPKc
-	.globl	_Z11search_compmP9list_elemPKc
-	.type	_Z11search_compmP9list_elemPKc, @function
-_Z11search_compmP9list_elemPKc:
-.LFB1843:
-	.cfi_startproc
-	pushq	%rbp
-	.cfi_def_cfa_offset 16
-	.cfi_offset 6, -16
-	movq	%rsp, %rbp
-	.cfi_def_cfa_register 6
 	pushq	%r12
+	.cfi_def_cfa_offset 16
+	.cfi_offset 12, -16
+	pushq	%rbp
+	.cfi_def_cfa_offset 24
+	.cfi_offset 6, -24
+	movq	%rsi, %rbp
 	pushq	%rbx
-	.cfi_offset 12, -24
+	.cfi_def_cfa_offset 32
 	.cfi_offset 3, -32
-	movq	%rdi, -24(%rbp)
-	movq	%rsi, -32(%rbp)
-	movq	%rdx, -40(%rbp)
-	movl	$0, %ebx
-	movl	$0, %r12d
-.L16:
-	cmpq	$0, -24(%rbp)
-	je	.L8
-	movq	-32(%rbp), %rax
-	movq	(%rax), %r12
-	movq	-40(%rbp), %rbx
-.L12:
-	movzbl	(%rbx), %eax
-	testb	%al, %al
-	je	.L9
-	movzbl	(%rbx), %edx
-	movzbl	(%r12), %eax
-	cmpb	%al, %dl
-	jne	.L18
-	addq	$1, %rbx
-	addq	$1, %r12
-	nop
-	jmp	.L12
-.L18:
-	nop
+	movzbl	(%rsi), %r8d
+	testb	%r8b, %r8b
+	je	.L15
+	movq	%rsi, %rax
+	movl	$5381, %ecx
+	.p2align 4,,10
+	.p2align 3
 .L9:
-	movzbl	(%rbx), %eax
-	testb	%al, %al
-	je	.L13
-	subq	$1, -24(%rbp)
-	movq	-32(%rbp), %rax
-	movq	8(%rax), %rax
-	movq	%rax, -32(%rbp)
-	jmp	.L16
-.L13:
-	movq	-32(%rbp), %rax
-	movq	(%rax), %rax
-	jmp	.L15
+	movl	%ecx, %edx
+	addq	$1, %rax
+	sall	$5, %edx
+	addl	%edx, %ecx
+	addl	%r8d, %ecx
+	movzbl	(%rax), %r8d
+	testb	%r8b, %r8b
+	jne	.L9
+	movl	%ecx, %eax
+	movl	$274877907, %edx
+	mull	%edx
+	shrl	$6, %edx
+	imull	$1000, %edx, %edx
+	subl	%edx, %ecx
+	movslq	%ecx, %rcx
+	leaq	(%rcx,%rcx,2), %r12
+	salq	$3, %r12
 .L8:
-	movl	$0, %eax
-.L15:
+	addq	%rdi, %r12
+	movq	%r12, %rdi
+	call	_ZNK4list4sizeEv@PLT
+	movq	%r12, %rdi
+	movq	%rax, %rbx
+	call	_ZNK4list4headEv@PLT
+	testq	%rbx, %rbx
+	movq	%rax, %rdx
+	je	.L18
+	movzbl	0(%rbp), %ecx
+	jmp	.L14
+	.p2align 4,,10
+	.p2align 3
+.L12:
+	subq	$1, %rbx
+	movq	8(%rdx), %rdx
+	je	.L18
+.L14:
+	testb	%cl, %cl
+	movq	(%rdx), %rax
+	je	.L7
+	cmpb	(%rax), %cl
+	jne	.L12
+	movl	$1, %esi
+.L11:
+	movzbl	0(%rbp,%rsi), %edi
+	testb	%dil, %dil
+	je	.L7
+	addq	$1, %rsi
+	cmpb	-1(%rax,%rsi), %dil
+	je	.L11
+	subq	$1, %rbx
+	movq	8(%rdx), %rdx
+	jne	.L14
+	.p2align 4,,10
+	.p2align 3
+.L18:
+	xorl	%eax, %eax
+.L7:
 	popq	%rbx
-	popq	%r12
+	.cfi_remember_state
+	.cfi_def_cfa_offset 24
 	popq	%rbp
-	.cfi_def_cfa 7, 8
+	.cfi_def_cfa_offset 16
+	popq	%r12
+	.cfi_def_cfa_offset 8
 	ret
+	.p2align 4,,10
+	.p2align 3
+.L15:
+	.cfi_restore_state
+	movl	$9144, %r12d
+	jmp	.L8
 	.cfi_endproc
-.LFE1843:
-	.size	_Z11search_compmP9list_elemPKc, .-_Z11search_compmP9list_elemPKc
-	.ident	"GCC: (Ubuntu 7.3.0-27ubuntu1~18.04) 7.3.0"
+.LFE1940:
+	.size	_Z9find_wordPK4listPKc, .-_Z9find_wordPK4listPKc
+	.p2align 4,,15
+	.globl	search_comp
+	.type	search_comp, @function
+search_comp:
+.LFB1941:
+	.cfi_startproc
+	testq	%rdi, %rdi
+	je	.L33
+	movzbl	(%rdx), %ecx
+	jmp	.L30
+	.p2align 4,,10
+	.p2align 3
+.L28:
+	subq	$1, %rdi
+	movq	8(%rsi), %rsi
+	je	.L33
+.L30:
+	testb	%cl, %cl
+	movq	(%rsi), %rax
+	je	.L25
+	cmpb	(%rax), %cl
+	jne	.L28
+	movl	$1, %r8d
+.L27:
+	movzbl	(%rdx,%r8), %r9d
+	testb	%r9b, %r9b
+	je	.L38
+	addq	$1, %r8
+	cmpb	-1(%rax,%r8), %r9b
+	je	.L27
+	subq	$1, %rdi
+	movq	8(%rsi), %rsi
+	jne	.L30
+.L33:
+	xorl	%eax, %eax
+	ret
+	.p2align 4,,10
+	.p2align 3
+.L25:
+	rep ret
+	.p2align 4,,10
+	.p2align 3
+.L38:
+	rep ret
+	.cfi_endproc
+.LFE1941:
+	.size	search_comp, .-search_comp
+	.ident	"GCC: (Ubuntu 7.4.0-1ubuntu1~18.04) 7.4.0"
 	.section	.note.GNU-stack,"",@progbits

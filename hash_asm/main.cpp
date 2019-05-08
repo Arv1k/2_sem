@@ -29,7 +29,6 @@ int main(int argc, char* argv[]) {
     str* dict = Fill_the_Addresses("dict.txt");
     str* tmp = dict;
 
-
     for (int i = 0; i < 100; i++) {
         char *hey = nullptr;
         while (tmp->String) {
