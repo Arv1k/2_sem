@@ -1,0 +1,3 @@
+/home/arv1k/CLionProjects/2_sem/binary_trans/Language/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/arv1k/CLionProjects/2_sem/binary_trans/Language/cmake-build-debug/CMakeFiles/Language.dir
+/home/arv1k/CLionProjects/2_sem/binary_trans/Language/cmake-build-debug/CMakeFiles/edit_cache.dir

@@ -1,0 +1,137 @@
+a туды,
+b туды,
+c туды,
+
+a әйт,
+b әйт,
+c әйт,
+
+xo туды,
+xt туды,
+
+xt бу 34,
+
+әгәр "a 0 тигез":
+    әгәр "b 0 тигез":
+        әгәр "c 0 тигез" xo бу 999,
+        әгәр "c 0 түгeл" xo бу (0 - 999).,
+
+    әгәр "b 0 түгeл" xo бу (0 - b/c).,
+
+әгәр "a 0 түгeл":
+    D туды,
+    D бу sqrt(b*b - 4*a*c),
+
+    xo бу (((0 - b) - D) / (2*a)),
+    xt бу (((0 - b) + D) / (2*a)).,
+
+әгәр "xo xt тигез" xo күрсәт,
+
+әгәр "xo xt түгeл":
+    әгәр "xt 34 тигез" xo күрсәт,
+
+    әгәр "xt 34 түгeл":
+        xo күрсәт,
+        xt күрсәт...
+
+
+        in
+        pop [0]
+        in
+        pop [1]
+        in
+        pop [2]
+        push 34
+        pop [4]
+        push [0]
+        push 0
+        jrc :0
+        push [1]
+        push 0
+        jrc :0
+        push [2]
+        push 0
+        jrc :0
+        push 999
+        pop [3]
+        :0
+        push [2]
+        push 0
+        jc :1
+        push 0
+        push 999
+        sub
+        pop [3]
+        :1
+        :2
+        push [1]
+        push 0
+        jc :3
+        push 0
+        push [1]
+        push [2]
+        div
+        sub
+        pop [3]
+        :3
+        :4
+        push [0]
+        push 0
+        jc :5
+        push [1]
+        push [1]
+        mul
+        push 4
+        push [0]
+        mul
+        push [2]
+        mul
+        sub
+        sqrt
+        pop [5]
+        push 0
+        push [1]
+        sub
+        push [5]
+        sub
+        push 2
+        push [0]
+        mul
+        div
+        pop [3]
+        push 0
+        push [1]
+        sub
+        push [5]
+        add
+        push 2
+        push [0]
+        mul
+        div
+        pop [4]
+        :5
+        push [3]
+        push [4]
+        jrc :6
+        push [3]
+        out
+        :6
+        push [3]
+        push [4]
+        jc :7
+        push [4]
+        push 34
+        jrc :7
+        push [3]
+        out
+        :7
+        push [4]
+        push 34
+        jc :8
+        push [3]
+        out
+        push [4]
+        out
+        :8
+        :9
+        end

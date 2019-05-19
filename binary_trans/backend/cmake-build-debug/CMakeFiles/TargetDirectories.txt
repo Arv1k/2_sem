@@ -1,0 +1,3 @@
+/home/arv1k/CLionProjects/2_sem/binary_trans/backend/cmake-build-debug/CMakeFiles/rebuild_cache.dir
+/home/arv1k/CLionProjects/2_sem/binary_trans/backend/cmake-build-debug/CMakeFiles/backend.dir
+/home/arv1k/CLionProjects/2_sem/binary_trans/backend/cmake-build-debug/CMakeFiles/edit_cache.dir
