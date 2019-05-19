@@ -20,6 +20,12 @@ cstdlib
 
 /home/arv1k/CLionProjects/2_sem/binary_trans/Language/com.h
 
+/home/arv1k/CLionProjects/2_sem/binary_trans/Language/language.cpp
+language.h
+/home/arv1k/CLionProjects/2_sem/binary_trans/Language/language.h
+com.h
+/home/arv1k/CLionProjects/2_sem/binary_trans/Language/com.h
+
 /home/arv1k/CLionProjects/2_sem/binary_trans/Language/language.h
 cstdio
 /home/arv1k/CLionProjects/2_sem/binary_trans/Language/cstdio
@@ -33,6 +39,10 @@ com.h
 /home/arv1k/CLionProjects/2_sem/binary_trans/Language/main.cpp
 language.h
 /home/arv1k/CLionProjects/2_sem/binary_trans/Language/language.h
+
+/home/arv1k/CLionProjects/2_sem/binary_trans/Language/tree/binary_tree.cpp
+binary_tree.h
+/home/arv1k/CLionProjects/2_sem/binary_trans/Language/tree/binary_tree.h
 
 /home/arv1k/CLionProjects/2_sem/binary_trans/Language/tree/binary_tree.h
 cstdio

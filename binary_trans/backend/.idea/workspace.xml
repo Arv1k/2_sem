@@ -12,6 +12,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="60a8cbcb-fd51-47fb-8b2f-17530c1d4f6e" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Language/cmake-build-debug/CMakeFiles/Language.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/../Language/cmake-build-debug/CMakeFiles/Language.dir/CXX.includecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Language/cmake-build-debug/CMakeFiles/Language.dir/language.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../Language/cmake-build-debug/CMakeFiles/Language.dir/language.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Language/cmake-build-debug/CMakeFiles/Language.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../Language/cmake-build-debug/CMakeFiles/Language.dir/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Language/cmake-build-debug/CMakeFiles/Language.dir/tree/binary_tree.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../Language/cmake-build-debug/CMakeFiles/Language.dir/tree/binary_tree.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Language/cmake-build-debug/Language" beforeDir="false" afterPath="$PROJECT_DIR$/../Language/cmake-build-debug/Language" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Language/language.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Language/language.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Language/tree/binary_tree.h" beforeDir="false" afterPath="$PROJECT_DIR$/../Language/tree/binary_tree.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/backend.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend.h" beforeDir="false" afterPath="$PROJECT_DIR$/backend.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/backend.dir/main.cpp.o" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../std_tree" beforeDir="false" afterPath="$PROJECT_DIR$/../std_tree" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../hash_asm/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../../hash_asm/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../hash_asm/hash_asm.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../hash_asm/hash_asm.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../hash_asm/hash_asm.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../hash_asm/hash_asm.h" afterDir="false" />
@@ -31,7 +44,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.5">
+    <splitter split-orientation="horizontal" split-proportion="0.64109445">
       <split-first>
         <leaf>
           <file pinned="false" current-in-tab="false">
@@ -43,11 +56,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/backend.cpp">
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/tree/binary_tree.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1320">
-                  <caret line="55" selection-start-line="55" selection-end-line="55" />
+                <state relative-caret-position="163">
+                  <caret line="274" selection-start-line="274" selection-end-line="274" />
                 </state>
               </provider>
             </entry>
@@ -55,15 +68,17 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/tree/binary_tree.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-936" />
+                <state relative-caret-position="96">
+                  <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+                </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/main.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="336">
-                  <caret line="14" selection-start-line="14" selection-end-line="14" />
+                <state relative-caret-position="339">
+                  <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
                 </state>
               </provider>
             </entry>
@@ -71,11 +86,20 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/backend.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="427">
-                  <caret line="18" column="19" selection-start-line="26" selection-end-line="27" />
+                <state relative-caret-position="571">
+                  <caret line="42" column="35" selection-start-line="9" selection-start-column="26" selection-end-line="14" selection-end-column="16" />
                   <folding>
                     <element signature="e#54#94#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/backend.cpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="209">
+                  <caret line="36" column="14" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
                 </state>
               </provider>
             </entry>
@@ -87,11 +111,20 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/backend.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="648">
-                  <caret line="27" lean-forward="true" selection-start-line="26" selection-end-line="27" />
+                <state>
+                  <caret line="9" column="26" selection-start-line="9" selection-start-column="26" selection-end-line="14" selection-end-column="16" />
                   <folding>
                     <element signature="e#54#94#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/backend.cpp">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="4704">
+                  <caret line="236" column="22" selection-start-line="236" selection-start-column="22" selection-end-line="236" selection-end-column="22" />
                 </state>
               </provider>
             </entry>
@@ -100,6 +133,21 @@
       </split-second>
     </splitter>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>0x42</find>
+      <find>0x45</find>
+      <find>CounT</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>M_I</replace>
+      <replace>M_i</replace>
+      <replace>M_S</replace>
+      <replace>M_C</replace>
+      <replace>M_P</replace>
+      <replace>M_e</replace>
+    </replaceStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
@@ -107,8 +155,8 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
-        <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/backend.h" />
+        <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/backend.cpp" />
       </list>
     </option>
@@ -124,6 +172,7 @@
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
+    <option name="y" value="-1" />
     <option name="width" value="959" />
     <option name="height" value="1079" />
   </component>
@@ -159,6 +208,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
@@ -176,7 +226,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="backend" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="$PROJECT_DIR$/../std_tree" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="backend" TARGET_NAME="backend" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="backend" RUN_TARGET_NAME="backend">
+    <configuration name="backend" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="$PROJECT_DIR$/../std_tree $PROJECT_DIR$/dott.dot" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="backend" TARGET_NAME="backend" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="backend" RUN_TARGET_NAME="backend">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -192,53 +242,53 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1558274939524</updated>
-      <workItem from="1558274940987" duration="5409000" />
+      <workItem from="1558274940987" duration="14860000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5409000" />
+    <option name="totallyTimeSpent" value="14860000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1920" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Favorites" side_tool="true" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.1668455" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="CMake" weight="0.329718" />
-      <window_info anchor="bottom" id="Database Changes" />
-      <window_info anchor="bottom" id="Version Control" />
-      <window_info anchor="bottom" id="Messages" weight="0.329718" />
-      <window_info anchor="bottom" id="Terminal" />
-      <window_info anchor="bottom" id="Event Log" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.329718" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="right" id="Database" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-    </layout>
-    <layout-to-restore>
       <window_info id="Favorites" order="0" side_tool="true" />
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.1668455" />
+      <window_info content_ui="combo" id="Project" order="1" weight="0.1668455" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" order="0" />
       <window_info anchor="bottom" id="Terminal" order="1" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="3" />
-      <window_info anchor="bottom" id="Messages" order="4" weight="0.329718" />
-      <window_info anchor="bottom" id="CMake" order="5" visible="true" weight="0.329718" />
-      <window_info anchor="bottom" id="Message" order="6" />
-      <window_info anchor="bottom" id="Find" order="7" />
-      <window_info anchor="bottom" id="Run" order="8" weight="0.329718" />
-      <window_info anchor="bottom" id="Debug" order="9" weight="0.3991323" />
-      <window_info anchor="bottom" id="Cvs" order="10" weight="0.25" />
+      <window_info anchor="bottom" id="Messages" order="4" weight="0.3286334" />
+      <window_info anchor="bottom" id="Message" order="5" />
+      <window_info anchor="bottom" id="Find" order="6" />
+      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.3991323" />
+      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
+      <window_info anchor="bottom" id="CMake" order="10" weight="0.329718" />
+      <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="12" />
+      <window_info anchor="right" id="Database" order="0" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info content_ui="combo" id="Project" order="1" weight="0.1668455" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" order="0" />
+      <window_info anchor="bottom" id="Terminal" order="1" />
+      <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Database Changes" order="3" />
+      <window_info anchor="bottom" id="Messages" order="4" weight="0.3286334" />
+      <window_info anchor="bottom" id="Message" order="5" />
+      <window_info anchor="bottom" id="Find" order="6" />
+      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.3991323" />
+      <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
+      <window_info anchor="bottom" id="CMake" order="10" weight="0.329718" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="12" />
       <window_info anchor="right" id="Database" order="0" />
@@ -251,15 +301,51 @@
     <option name="version" value="1" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/tree/binary_tree.cpp</url>
+          <line>274</line>
+          <option name="timeStamp" value="7" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/tree/binary_tree.cpp</url>
+          <line>321</line>
+          <option name="timeStamp" value="9" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/backend.cpp</url>
+          <line>252</line>
+          <option name="timeStamp" value="10" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
+          <url>file://$PROJECT_DIR$/backend.cpp</url>
+          <line>73</line>
+          <option name="timeStamp" value="11" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
         <watch expression="funcs" language="ObjectiveC" />
         <watch expression="funcs[0].var_num" />
+        <watch expression="pc" language="ObjectiveC" />
+        <watch expression="CounT" language="ObjectiveC" />
       </configuration>
     </watches-manager>
   </component>
   <component name="debuggerHistoryManager">
     <expressions id="watch">
+      <expression>
+        <expression-string>CounT</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
+      <expression>
+        <expression-string>pc</expression-string>
+        <language-id>ObjectiveC</language-id>
+        <evaluation-mode>EXPRESSION</evaluation-mode>
+      </expression>
       <expression>
         <expression-string>funcs</expression-string>
         <language-id>ObjectiveC</language-id>
@@ -268,18 +354,6 @@
     </expressions>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/tree/binary_tree.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-936" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/../../../1_sem/make_enc/enc.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1099">
@@ -287,17 +361,38 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="6" column="34" selection-start-line="6" selection-start-column="34" selection-end-line="6" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tree/binary_tree.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="163">
+          <caret line="274" selection-start-line="274" selection-end-line="274" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="336">
-          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        <state relative-caret-position="339">
+          <caret line="19" column="30" selection-start-line="19" selection-start-column="30" selection-end-line="19" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tree/binary_tree.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backend.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="427">
-          <caret line="18" column="19" selection-start-line="26" selection-end-line="27" />
+        <state relative-caret-position="571">
+          <caret line="42" column="35" selection-start-line="9" selection-start-column="26" selection-end-line="14" selection-end-column="16" />
           <folding>
             <element signature="e#54#94#0" expanded="true" />
           </folding>
@@ -306,8 +401,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/backend.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1320">
-          <caret line="55" selection-start-line="55" selection-end-line="55" />
+        <state relative-caret-position="209">
+          <caret line="36" column="14" selection-start-line="36" selection-start-column="14" selection-end-line="36" selection-end-column="14" />
         </state>
       </provider>
     </entry>

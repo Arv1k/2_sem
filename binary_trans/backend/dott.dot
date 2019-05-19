@@ -1,0 +1,37 @@
+digraph {
+	node[color = "#000000", fontsize = 20];
+	edge[color = "#000000", fontsize = 20];
+		hey0[label = "B", shape = "Mcircle", color="#000000", style="filled", fillcolor = "#32CD32"];
+		hey0->hey1;
+		hey1[label = "i a", shape = "invtriangle", color="#000000", style="filled", fillcolor = "#00FFFF"];
+		hey0->hey2;
+		hey2[label = "B", shape = "Mcircle", color="#000000", style="filled", fillcolor = "#32CD32"];
+		hey2->hey3;
+		hey3[label = "E", shape = "parallelogram", color="#000000", style="filled", fillcolor = "#006400"];
+		hey3->hey4;
+		hey4[label = "V a", shape = "house", color="#000000", style="filled", fillcolor = "#800000"];
+		hey3->hey5;
+		hey5[label = "C Calc_fact", shape = "box3d", color="#000000", style="filled", fillcolor = "#708090"];
+		hey5->hey6;
+		hey6[label = "P", shape = "box3d", color="#000000", style="filled", fillcolor = "#EE82EE"];
+		hey6->hey7;
+		hey7[label = "s 42", shape = "diamond", color="#000000", style="filled", fillcolor = "#F0E68C"];
+		hey7->hey8;
+		hey8[label = "V a", shape = "house", color="#000000", style="filled", fillcolor = "#800000"];
+		hey7->hey9;
+		hey9[label = "V a", shape = "house", color="#000000", style="filled", fillcolor = "#800000"];
+		hey2->hey10;
+		hey10[label = "B", shape = "Mcircle", color="#000000", style="filled", fillcolor = "#32CD32"];
+		hey10->hey11;
+		hey11[label = "S 19", shape = "box3d", color="#000000", style="filled", fillcolor = "#FFDEAD"];
+		hey11->hey12;
+		hey12[label = "P", shape = "box3d", color="#000000", style="filled", fillcolor = "#EE82EE"];
+		hey12->hey13;
+		hey13[label = "V a", shape = "house", color="#000000", style="filled", fillcolor = "#800000"];
+		hey10->hey14;
+		hey14[label = "B", shape = "Mcircle", color="#000000", style="filled", fillcolor = "#32CD32"];
+		hey14->hey15;
+		hey15[label = "R", shape = "house", color="#000000", style="filled", fillcolor = "#D2691E"];
+		hey15->hey16;
+		hey16[label = "V a", shape = "house", color="#000000", style="filled", fillcolor = "#800000"];
+}

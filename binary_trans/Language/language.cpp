@@ -1024,7 +1024,6 @@ void std_tree_filling(tree_elem* pos) {
     else            *ip++ = ' ';
     *ip++ = ')';
 
-    *ip++ = ' ';
     take_body(pos->Left);
 
     *ip++ = '{';
@@ -1064,11 +1063,13 @@ void take_params(tree_elem* pos) {
 }
 
 #define new_body *ip++ = '{';\
-                 *ip++ = 0x42;\
+                 *ip++ = M_B;\
                  *ip++ = '{';
 
 #define end_body *ip++ = '}';\
                  skobka++;
+                 
+                 
 
 void take_body(tree_elem* pos) {
     if (pos->Info.mode == MODE_OPERATORR) {
@@ -1083,7 +1084,7 @@ void take_body(tree_elem* pos) {
         case MODE_BORN: //+
             new_body;
 
-            *ip++ = 0x69;
+            *ip++ = M_i;
 
             assert(pos->Left->Info.mode == MODE_VAR);
 
@@ -1096,13 +1097,13 @@ void take_body(tree_elem* pos) {
         case MODE_IN: //+
             new_body;
 
-            *ip++ = 0x53;
+            *ip++ = M_S;
             *ip++ = 0x30;
 
             assert(pos->Left->Info.mode == MODE_VAR);
 
             *ip++ = '{';
-            *ip++ = 0x50;
+            *ip++ = M_P;
 
             take_body(pos->Left);
 
@@ -1116,11 +1117,11 @@ void take_body(tree_elem* pos) {
         case MODE_OUT:
             new_body;
 
-            *ip++ = 0x53;
+            *ip++ = M_S;
             *ip++ = 0x31;
 
             *ip++ = '{';
-            *ip++ = 0x50;
+            *ip++ = M_P;
 
             take_body(pos->Left);
 
@@ -1134,7 +1135,7 @@ void take_body(tree_elem* pos) {
         case MODE_ASSIGN:
             new_body;
 
-            *ip++ = 0x45;
+            *ip++ = M_e;
 
             assert(pos->Left->Info.mode == MODE_VAR);
 
@@ -1147,7 +1148,7 @@ void take_body(tree_elem* pos) {
         case MODE_IF:
             new_body;
 
-            *ip++ = 0x49;
+            *ip++ = M_I;
 
             take_body(pos->Left);
             take_body(pos->Right);
@@ -1158,7 +1159,7 @@ void take_body(tree_elem* pos) {
         case MODE_CALL:
             new_body;
 
-            *ip++ = 0x43;
+            *ip++ = M_C;
 
             assert(pos->Left->Info.mode == MODE_VAR);
 
@@ -1177,7 +1178,7 @@ void take_body(tree_elem* pos) {
 
         case MODE_SIGN:
             *ip++ = '{';
-            *ip++ = 0x73;
+            *ip++ = M_s;
             *ip++ = (char) pos->Info.number;
 
             take_body(pos->Left);
@@ -1189,7 +1190,7 @@ void take_body(tree_elem* pos) {
         case MODE_LOOP:
             *ip++ = '{';
 
-            *ip++ = 0x4c;
+            *ip++ = M_L;
 
             take_body(pos->Left);
             take_body(pos->Right);
@@ -1200,7 +1201,7 @@ void take_body(tree_elem* pos) {
         case MODE_BIGGER:
             *ip++ = '{';
 
-            *ip++ = 0x4f;
+            *ip++ = M_O;
             *ip++ = '>';
 
             take_body(pos->Left);
@@ -1212,7 +1213,7 @@ void take_body(tree_elem* pos) {
         case MODE_LESS:
             *ip++ = '{';
 
-            *ip++ = 0x4f;
+            *ip++ = M_O;
             *ip++ = '<';
 
             take_body(pos->Left);
@@ -1224,7 +1225,7 @@ void take_body(tree_elem* pos) {
         case MODE_NOT_EQUAL:
             *ip++ = '{';
 
-            *ip++ = 0x4f;
+            *ip++ = M_O;
             *ip++ = '!';
 
             take_body(pos->Left);
@@ -1236,7 +1237,7 @@ void take_body(tree_elem* pos) {
         case MODE_EQUAL:
             *ip++ = '{';
 
-            *ip++ = 0x4f;
+            *ip++ = M_O;
             *ip++ = '=';
 
             take_body(pos->Left);
@@ -1248,7 +1249,7 @@ void take_body(tree_elem* pos) {
         case MODE_RETURN:
             *ip++ = '{';
 
-            *ip++ = 0x52;
+            *ip++ = M_R;
 
             take_body(pos->Left);
 
@@ -1259,7 +1260,7 @@ void take_body(tree_elem* pos) {
         case MODE_VAR: //+
             *ip++ = '{';
 
-            *ip++ = 0x56;
+            *ip++ = M_V;
             for (int i = 0; pos->Info.name[i]; i++)
                 *ip++ = pos->Info.name[i];
 
@@ -1269,7 +1270,7 @@ void take_body(tree_elem* pos) {
         case MODE_NUMBER: //+
             *ip++ = '{';
 
-            *ip++ = 0x4e;
+            *ip++ = M_N;
             *((int*) ip) = pos->Info.number;
             ip += sizeof(int);
 
@@ -1282,7 +1283,7 @@ void take_body(tree_elem* pos) {
 
         case MODE_VARIABLES:
             *ip++ = '{';
-            *ip++ = 0x50;
+            *ip++ = M_P;
 
             take_body(pos->Left);
             take_body(pos->Right);

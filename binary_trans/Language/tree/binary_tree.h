@@ -45,6 +45,22 @@ enum {
     MODE_RETURN    = 84,
 };
 
+enum {
+    M_B = 0x42,
+    M_s = 0x73,
+    M_O = 0x4f,
+    M_I = 0x49,
+    M_i = 0x69,
+    M_N = 0x4e,
+    M_R = 0x52,
+    M_V = 0x56,
+    M_L = 0x4c,
+    M_S = 0x53,
+    M_C = 0x43,
+    M_P = 0x50,
+    M_e = 0x45,
+};
+
 const int yad_num = -111;
 const char yad_sign = -22;
 const size_t yad_mode = 911;

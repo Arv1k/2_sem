@@ -11,7 +11,13 @@ int main(int argc, char* argv[]) {
 
     tree TrEE = {};
 
-    make_std_tree(&TrEE, buffer);
+    Function funcs[10] = {};
+
+    make_std_tree(&TrEE, buffer, funcs);
+
+    std_tree_dot(funcs[0].tree_func, argv[2]);
+
+    FunctionDtor(&(funcs[0]));
 
     free(buffer);
 }
