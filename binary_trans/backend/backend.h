@@ -42,9 +42,9 @@ enum {
 
 void FunctionDtor(Function* funcs);
 
-void make_std_tree(tree* name_tree, char* buffer, Function* funcs);
+void make_std(char* buffer, Function* funcs);
 
-tree_elem* get_tree();
+tree_elem* get_tree(Function* funcs);
 
 void std_tree_dot(tree* nameTree, char* dot_out);
 

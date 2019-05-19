@@ -12,16 +12,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e19586b-75f7-464b-9723-58acdba8d33f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/Language/language.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/Language/language.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Language/tree/binary_tree.h" beforeDir="false" afterPath="$PROJECT_DIR$/Language/tree/binary_tree.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/backend.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/backend/backend.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/backend.h" beforeDir="false" afterPath="$PROJECT_DIR$/backend/backend.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/cmake-build-debug/CMakeFiles/backend.dir/backend.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/backend/cmake-build-debug/CMakeFiles/backend.dir/backend.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/cmake-build-debug/CMakeFiles/backend.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/backend/cmake-build-debug/CMakeFiles/backend.dir/main.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/cmake-build-debug/backend" beforeDir="false" afterPath="$PROJECT_DIR$/backend/cmake-build-debug/backend" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/dott.dot" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dott.dot" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/backend/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/std_tree" beforeDir="false" afterPath="$PROJECT_DIR$/std_tree" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/tree.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/tree.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../hash_asm/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../hash_asm/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../hash_asm/hash_asm.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../hash_asm/hash_asm.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../hash_asm/hash_asm.h" beforeDir="false" afterPath="$PROJECT_DIR$/../hash_asm/hash_asm.h" afterDir="false" />
@@ -57,7 +56,7 @@
             <entry file="file://$PROJECT_DIR$/Language/main.cpp">
               <provider selected="true" editor-type-id="text-editor">
                 <state relative-caret-position="835">
-                  <caret line="50" column="14" lean-forward="true" selection-start-line="45" selection-start-column="20" selection-end-line="50" selection-end-column="14" />
+                  <caret line="50" column="14" selection-start-line="45" selection-start-column="20" selection-end-line="50" selection-end-column="14" />
                 </state>
               </provider>
             </entry>
@@ -84,7 +83,7 @@
             <entry file="file://$PROJECT_DIR$/std_tree">
               <provider selected="true" editor-type-id="text-editor">
                 <state>
-                  <caret column="28" selection-start-column="28" selection-end-column="28" />
+                  <caret column="80" selection-start-column="80" selection-end-column="80" />
                 </state>
               </provider>
             </entry>
@@ -243,12 +242,12 @@
       <workItem from="1558204255164" duration="429000" />
       <workItem from="1558204704138" duration="1873000" />
       <workItem from="1558208071836" duration="13065000" />
-      <workItem from="1558261359162" duration="22516000" />
+      <workItem from="1558261359162" duration="23185000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37883000" />
+    <option name="totallyTimeSpent" value="38552000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1920" height="1080" extended-state="6" />
@@ -382,7 +381,7 @@
     <entry file="file://$PROJECT_DIR$/Language/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="835">
-          <caret line="50" column="14" lean-forward="true" selection-start-line="45" selection-start-column="20" selection-end-line="50" selection-end-column="14" />
+          <caret line="50" column="14" selection-start-line="45" selection-start-column="20" selection-end-line="50" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -403,7 +402,7 @@
     <entry file="file://$PROJECT_DIR$/std_tree">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="28" selection-start-column="28" selection-end-column="28" />
+          <caret column="80" selection-start-column="80" selection-end-column="80" />
         </state>
       </provider>
     </entry>

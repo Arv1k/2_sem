@@ -4,77 +4,85 @@ void FunctionDtor(Function* func) {
     free(func->name);
     TreeDtor(func->tree_func);
 
+    func->tree_func = nullptr;
+
     func->var_num = yad_var_num;
 
     for (int i = 0; i < 10; i++) {
-        free(func->var[i].name_var);
+        if (func->var[i].name_var) free(func->var[i].name_var);
         func->var[i].place_var = yad_place_var;
     }
 }
 
 size_t CounT = 0;
+int i = 0;
+int j = 0;
 
 char* pc = nullptr;
-void make_std_tree(tree* name_tree, char* buffer, Function* funcs) {
-    assert(name_tree);
+void make_std(char* buffer, Function* funcs) {
     assert(buffer);
+    assert(funcs);
 
     pc = buffer;
 
-    int i = 0;
-    int j = 0;
+    while (*pc) {
+        assert(*pc == '#');
 
-    assert(*pc == '#');
+        pc++;
 
-    pc++;
-
-    char* tmp = pc;
-    pc = strchr(pc, '(');
-    *pc = '\0';
+        char *tmp = pc;
+        pc = strchr(pc, '(');
+        *pc = '\0';
 
 
-    funcs[i].name = strdup(tmp);
-    *pc++ = '(';
+        funcs[i].name = strdup(tmp);
+        *pc++ = '(';
+        pc++;
 
-    assert(*pc == '(');
-
-    pc += 2;
-    if (*pc != ')') {
-        tmp = pc;
-        pc = strchr(pc, ' ');
-        *pc++ = '\0';
-
-        funcs[i].var_num++;
-        funcs[i].var[j].name_var = tmp;
-        funcs[i].var[j++].place_var++;
-
-        while (*pc == ',') {
-            pc += 2;
-
+        if (*pc != ')') {
             tmp = pc;
             pc = strchr(pc, ' ');
             *pc++ = '\0';
 
             funcs[i].var_num++;
-            funcs[i].var[j].name_var = tmp;
-            funcs[i].var[j++].place_var++;
+            funcs[i].var[j].name_var = strdup(tmp);
+            funcs[i].var[j].place_var = j;
+            j++;
+
+            while (*pc == ',') {
+                pc += 2;
+
+                tmp = pc;
+                pc = strchr(pc, ' ');
+                *pc++ = '\0';
+
+                funcs[i].var_num++;
+                funcs[i].var[j].name_var = strdup(tmp);
+                funcs[i].var[j].place_var = j;
+                j++;
+            }
         }
+
+        assert(*pc == ')');
+
+        pc++;
+
+        assert(*pc == '{');
+
+        funcs[i].tree_func = new tree;
+        TreeCtor(funcs[i].tree_func);
+
+        funcs[i].tree_func->Tamyr = get_tree(funcs);
+        funcs[i].tree_func->count = CounT;
+
+        pc++;
+        i++;
+        j = 0;
+        CounT = 0;
     }
-
-    assert(*pc == ')');
-
-    pc++;
-
-    assert(*pc == '{');
-
-    funcs[i].tree_func = new tree;
-    TreeCtor(funcs[i].tree_func);
-
-    funcs[i].tree_func->Tamyr = get_tree();
-    funcs[i].tree_func->count = CounT;
 }
 
-tree_elem* get_tree() {
+tree_elem* get_tree(Function* funcs) {
     assert(*pc == '{');
     pc++;
 
@@ -87,8 +95,8 @@ tree_elem* get_tree() {
         case M_B:
             val->Info.mode = *pc++;
 
-            val->Left  = get_tree();
-            val->Right = get_tree();
+            val->Left  = get_tree(funcs);
+            val->Right = get_tree(funcs);
 
             assert(*pc == '}');
             pc++;
@@ -97,9 +105,9 @@ tree_elem* get_tree() {
 
         case M_S:
             val->Info.mode   = *pc++;
-            val->Info.number = (*pc++) - 30;
+            val->Info.number = (*pc++) - 0x30;
 
-            val->Left  = get_tree();
+            val->Left  = get_tree(funcs);
             val->Right = nullptr;
 
             assert(*pc == '}');
@@ -110,8 +118,8 @@ tree_elem* get_tree() {
         case M_e:
             val->Info.mode = *pc++;
 
-            val->Left  = get_tree();
-            val->Right = get_tree();
+            val->Left  = get_tree(funcs);
+            val->Right = get_tree(funcs);
 
             assert(*pc == '}');
             pc++;
@@ -121,8 +129,8 @@ tree_elem* get_tree() {
         case M_I:
             val->Info.mode = *pc++;
 
-            val->Left  = get_tree();
-            val->Right = get_tree();
+            val->Left  = get_tree(funcs);
+            val->Right = get_tree(funcs);
 
             assert(*pc == '}');
             pc++;
@@ -140,7 +148,7 @@ tree_elem* get_tree() {
             *pc = '{';
 
 
-            val->Left  = get_tree();
+            val->Left  = get_tree(funcs);
             val->Right = nullptr;
 
             assert(*pc == '}');
@@ -152,8 +160,8 @@ tree_elem* get_tree() {
             val->Info.mode = *pc++;
             val->Info.number = (int) *pc++;
 
-            val->Left  = get_tree();
-            val->Right = get_tree();
+            val->Left  = get_tree(funcs);
+            val->Right = get_tree(funcs);
 
             assert(*pc == '}');
             pc++;
@@ -163,8 +171,8 @@ tree_elem* get_tree() {
         case M_L:
             val->Info.mode = *pc++;
 
-            val->Left  = get_tree();
-            val->Right = get_tree();
+            val->Left  = get_tree(funcs);
+            val->Right = get_tree(funcs);
 
             assert(*pc == '}');
             pc++;
@@ -175,8 +183,8 @@ tree_elem* get_tree() {
             val->Info.mode = *pc++;
             val->Info.number = (int) *pc++;
 
-            val->Left  = get_tree();
-            val->Right = get_tree();
+            val->Left  = get_tree(funcs);
+            val->Right = get_tree(funcs);
 
             assert(*pc == '}');
             pc++;
@@ -186,7 +194,7 @@ tree_elem* get_tree() {
         case M_R:
             val->Info.mode = *pc++;
 
-            val->Left  = get_tree();
+            val->Left  = get_tree(funcs);
             val->Right = nullptr;
 
             assert(*pc == '}');
@@ -211,8 +219,8 @@ tree_elem* get_tree() {
         case M_P:
             val->Info.mode = *pc++;
 
-            val->Left = get_tree();
-            val->Right = get_tree();
+            val->Left = get_tree(funcs);
+            val->Right = get_tree(funcs);
 
             assert(*pc == '}');
             pc++;
@@ -227,6 +235,12 @@ tree_elem* get_tree() {
 
             *pc = '\0';
             val->Info.name = strdup(tmp);
+
+            funcs[i].var[j].name_var = val->Info.name;
+            funcs[i].var[j].place_var = j;
+            j++;
+
+
             *pc = '}';
 
             val->Right = nullptr;
@@ -244,6 +258,7 @@ tree_elem* get_tree() {
 
             *pc = '\0';
             val->Info.name = strdup(tmp);
+
             *pc = '}';
 
             pc++;
@@ -328,12 +343,12 @@ void print_std_mode(tree_elem* pos, FILE* dot_out) {
                                               "fillcolor = \"#32CD32\"]");
             break;
 
-        case M_s:      fprintf(dot_out, "[label = \"s %d\", shape = \"diamond\", "
+        case M_s:      fprintf(dot_out, "[label = \"s %c\", shape = \"diamond\", "
                                               "color=\"#000000\", style=\"filled\", "
                                               "fillcolor = \"#F0E68C\"]", (pos->Info).number);
             break;
 
-        case M_O:       fprintf(dot_out, "[label = \"O %d\", shape = \"component\", "
+        case M_O:       fprintf(dot_out, "[label = \"O %c\", shape = \"component\", "
                                               "color=\"#000000\", style=\"filled\", "
                                               "fillcolor = \"#9932CC\"]", (pos->Info).number);
             break;
@@ -360,7 +375,7 @@ void print_std_mode(tree_elem* pos, FILE* dot_out) {
 
         case M_V:        fprintf(dot_out, "[label = \"V %s\", shape = \"house\", "
                                               "color=\"#000000\", style=\"filled\", "
-                                              "fillcolor = \"#800000\"]", pos->Info.name);
+                                              "fillcolor = \"#ff6161\"]", pos->Info.name);
             break;
 
         case M_L:       fprintf(dot_out, "[label = \"L\", shape = \"box3d\", "
@@ -385,7 +400,7 @@ void print_std_mode(tree_elem* pos, FILE* dot_out) {
 
         case M_e:    fprintf(dot_out, "[label = \"E\", shape = \"parallelogram\", "
                                               "color=\"#000000\", style=\"filled\", "
-                                              "fillcolor = \"#006400\"]");
+                                              "fillcolor = \"#00b34a\"]");
             break;
 
         default:             fprintf(dot_out, "\"error\"");
