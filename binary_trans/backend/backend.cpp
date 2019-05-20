@@ -431,7 +431,19 @@ void make_elf(Function* funcs, char* base_name, char* elf_name) {
 
     //print();
 
-    Compile_tree(&(funcs[0]), funcs, pos);
+    int uyu = 0;
+    while (funcs[uyu].tree_func) {
+        *pos++ = 0x55;  // push rbp
+
+        *pos++ = 0x48;  // mov rbp, rsp
+        *pos++ = 0x89;  //
+        *pos++ = 0xe5;  //
+
+        Compile_tree(&(funcs[uyu]), funcs, pos);
+        uyu++;
+
+        *pos++ = 0x5d;  // pop rbp
+    }
 
     FILE* maxu = fopen(elf_name, "wb");
     fwrite(buffer, sizeof(char), num_symbols, maxu);
@@ -448,12 +460,6 @@ void make_elf(Function* funcs, char* base_name, char* elf_name) {
     fclose(elf);*/
 }
 
-char* translate_funcs(Function* funcs) {
-    assert(funcs);
-
-}
-
-
 size_t Compile_tree(Function* curr_func, Function* func_table, char* start_pos) {
     assert(curr_func != nullptr);
     assert(func_table != nullptr);
@@ -469,7 +475,8 @@ void push_func_addr(char* name, Function* func_table, char* start_pos) {
     int i = 0;
     while (func_table[i].name != nullptr) {
         if (!strcmp(name, func_table[i].name)) {
-            func_table[i].sdvig = pos - start_pos;
+
+            func_table[i].sdvig = pos;
             break;
         }
         i++;
@@ -506,16 +513,15 @@ void compile_node(tree_elem* curr_node, Variables* arr_of_vars, Function* arr_of
             compile_node(curr_node->Left, arr_of_vars, arr_of_func);
             cmp();
             if (curr_node->Info.number == '=') {
-                (*pos) = 0x0f;
+                (*pos++) = 0x0f;
                 *(pos++) = 0x85;
             } else if (curr_node->Info.number == '>') {
-                (*pos) = 0x0f;
+                (*pos++) = 0x0f;
                 *(pos++) = 0x86;
             } else if (curr_node->Info.number == '<') {
-                (*pos) = 0x0f;
+                (*pos++) = 0x0f;
                 *(pos++) = 0x83;
             }
-            pos++;
             break;
         }
         case M_s: {
@@ -535,43 +541,7 @@ void compile_node(tree_elem* curr_node, Variables* arr_of_vars, Function* arr_of
         }
         case M_V: {
             int offset = find_var(curr_node->Info.name, arr_of_vars);
-            if (offset <= 0) {
-                *(pos) = 0x48;
-                *(pos++) = 0x8b;
-                *(pos++) = 0x45;
-                *(pos++) = 0x00 + (char) offset;
-                *(pos++) = 0x50;
-                pos++;
-            } else {
-                if (offset < 5) {
-                    *(pos) = 0x48;
-                    *(pos++) = 0x89;
-                    switch (offset) {
-                        case 1:
-                            *(pos++) = 0xf8;
-                            break;
-                        case 2:
-                            *(pos++) = 0xf0;
-                            break;
-                        case 3:
-                            *(pos++) = 0xc8;
-                            break;
-                        case 4:
-                            *(pos++) = 0xd0;
-                            break;
-                    }
-                } else if (offset == 5) {
-                    *(pos) = 0x4c;
-                    *(pos++) = 0x89;
-                    *(pos++) = 0xc0;
-                } else if (offset == 6) {
-                    *(pos) = 0x4c;
-                    *(pos++) = 0x89;
-                    *(pos++) = 0xc8;
-                }
-                *(pos++) = 0x50;
-                pos++;
-            }
+            take_from_memory(offset);
             break;
         }
         case M_B: {
@@ -581,8 +551,12 @@ void compile_node(tree_elem* curr_node, Variables* arr_of_vars, Function* arr_of
         }
         case M_R: {
             compile_node(curr_node->Left, arr_of_vars, arr_of_func);
-            *pos = 0x58;
+            *(pos) = 0x58;
             aligh_stack(arr_of_vars);
+            *(pos) = 0x5d;
+            pos++;
+            *(pos) = 0xc3;
+            pos++;
             break;
         }
 
@@ -610,7 +584,13 @@ void compile_node(tree_elem* curr_node, Variables* arr_of_vars, Function* arr_of
             break;
 
         case M_C:
+            if (curr_node->Right != nullptr)
+                compile_node(curr_node->Right, arr_of_vars, arr_of_func);
 
+            *pos = 0xe8;
+            pos++;
+            *((int*) pos) = find_add_func(curr_node->Info.name, arr_of_func) - (pos + 4);
+            pos += 4;
             break;
 
         case M_P:
@@ -619,12 +599,134 @@ void compile_node(tree_elem* curr_node, Variables* arr_of_vars, Function* arr_of
             break;
 
         case M_e:
+            compile_node(curr_node->Right, arr_of_vars, arr_of_func);
+            *pos = 0x58;
+            pos++;
 
+            push_to_memory(curr_node->Left->Info.name, arr_of_vars);
             break;
     }
     return;
 }
 
+char* find_add_func(char* name_func, Function* arr_of_func) {
+    int i = 0;
+    while (arr_of_func[i].name != nullptr) {
+        if (!strcmp(name_func, arr_of_func[i].name))
+            return arr_of_func[i].sdvig;
+        i++;
+    }
+    printf("I can't find this func - %s", name_func);
+    abort();
+}
+
+void push_to_memory(char* name, Variables* arr_of_vars) {
+    int offset = find_var(name, arr_of_vars);
+
+    if (offset <= 0) {
+        *(pos) = 0x48;
+        pos++;
+        *(pos) = 0x89;
+        pos++;
+        *(pos) = 0x45;
+
+        pos++;
+        *(pos) = 0x00 + (char) offset;
+        pos++;
+    } else {
+        if (offset < 5) {
+            *(pos) = 0x48;
+            pos++;
+            *(pos) = 0x89;
+            switch (offset) {
+                case 1:
+                    pos++;
+                    *(pos) = 0xc7;
+                    break;
+                case 2:
+                    pos++;
+                    *(pos) = 0xc6;
+                    break;
+                case 3:
+                    pos++;
+                    *(pos) = 0xc2;
+                    break;
+                case 4:
+                    pos++;
+                    *(pos) = 0xc1;
+                    break;
+            }
+        } else if (offset == 5) {
+            *(pos) = 0x49;
+            pos++;
+            *(pos) = 0x89;
+            pos++;
+            *(pos) = 0xc0;
+        } else if (offset == 6) {
+            *(pos) = 0x49;
+            pos++;
+            *(pos) = 0x89;
+            pos++;
+            *(pos) = 0xc1;
+        }
+        pos++;
+    }
+
+}
+
+void take_from_memory(int offset) {
+    if (offset <= 0) {
+        *(pos) = 0x48;
+        pos++;
+        *(pos) = 0x8b;
+        pos++;
+        *(pos) = 0x45;
+        pos++;
+        *(pos) = 0x00 + (char) offset;
+        pos++;
+        *(pos) = 0x50;
+        pos++;
+    } else {
+        if (offset < 5) {
+            *(pos) = 0x48;
+            pos++;
+            *(pos) = 0x89;
+            switch (offset) {
+                case 1:
+                    pos++;
+                    *(pos) = 0xf8;
+                    break;
+                case 2:
+                    pos++;
+                    *(pos) = 0xf0;
+                    break;
+                case 3:
+                    pos++;
+                    *(pos) = 0xc8;
+                    break;
+                case 4:
+                    pos++;
+                    *(pos) = 0xd0;
+                    break;
+            }
+        } else if (offset == 5) {
+            *(pos) = 0x4c;
+            pos++;
+            *(pos) = 0x89;
+            pos++;
+            *(pos) = 0xc0;
+        } else if (offset == 6) {
+            *(pos) = 0x4c;
+            pos++;
+            *(pos) = 0x89;
+            pos++;
+            *(pos) = 0xc8;
+        }
+        pos++;
+        *(pos) = 0x50;
+        pos++;
+    }
+}
 
 void cut_stack(Variables* arr_of_vars) {
     int i = 0;
@@ -635,11 +737,10 @@ void cut_stack(Variables* arr_of_vars) {
         i++;
     }
 
-    *pos = 0x48;
+    *pos++ = 0x48;
     *(pos++) = 0x83;
     *(pos++) = 0xec;
     *(pos++) = counter * 8;
-    pos++;
 }
 
 void aligh_stack(Variables* arr_of_vars) {
@@ -651,11 +752,10 @@ void aligh_stack(Variables* arr_of_vars) {
         i++;
     }
 
-    *pos = 0x48;
+    *(pos++) = 0x48;
     *(pos++) = 0x83;
     *(pos++) = 0xc4;
     *(pos++) = counter * 8;
-    pos++;
 }
 
 int find_var(char* name, Variables* arr_of_var) {
@@ -670,7 +770,7 @@ int find_var(char* name, Variables* arr_of_var) {
 }
 
 void add() {
-    (*pos) = 0x58;// pop rax, pop rbx
+    *(pos++) = 0x58;// pop rax, pop rbx
     *(pos++) = 0x5b;
 
     *(pos++) = 0x48;// add rax, rbx
@@ -678,8 +778,6 @@ void add() {
     *(pos++) = 0xd8;
 
     *(pos++) = 0x50;// push rax
-
-    pos++;
 }
 
 void div() {

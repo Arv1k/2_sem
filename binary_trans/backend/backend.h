@@ -20,7 +20,7 @@ struct Function {
     tree* tree_func = nullptr;
     size_t given_num = 0;
     size_t var_num = 0;
-    size_t sdvig = 0;
+    char* sdvig = nullptr;
     Variables var[10] = {};
 };
 
@@ -56,8 +56,6 @@ void print_std_mode(tree_elem* pos, FILE* dot_out);
 
 void make_elf(Function* funcs, char* base_name, char* elf_name);
 
-char* translate_funcs(Function* funs);
-
 size_t Compile_tree(Function* curr_func, Function* func_table, char* start_pos);
 
 void push_func_addr(char* name, Function* func_table, char* start_pos);
@@ -88,6 +86,11 @@ void scan();
 
 void print();
 
+void take_from_memory(int offset);
+
+void push_to_memory(char* name, Variables* arr_of_vars);
+
+char* find_add_func(char* name_func, Function* arr_of_func);
 
 
 #endif //BACKEND_BACKEND_H

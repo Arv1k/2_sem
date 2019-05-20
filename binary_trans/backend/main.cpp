@@ -13,8 +13,9 @@ int main(int argc, char* argv[]) {
 
     make_std(buffer, funcs);
 
-    std_tree_dot(funcs[0].tree_func, argv[2]);
-    std_tree_dot(funcs[1].tree_func, argv[2]);
+    for (int j = 0; j < 10; j++)
+        if (funcs[j].tree_func)
+            std_tree_dot(funcs[j].tree_func, argv[2]);
 
     make_elf(funcs, argv[3], argv[4]);
 
