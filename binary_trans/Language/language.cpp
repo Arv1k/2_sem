@@ -1041,8 +1041,13 @@ void take_params(tree_elem* pos) {
     if (pos->Info.mode != MODE_VARIABLES) {
         assert(pos->Info.mode == MODE_VAR);
 
-        for (int i = 0; pos->Left->Info.name[i]; i++)
+        *ip++ = ' ';
+        for (int i = 0; pos->Info.name[i]; i++)
             *ip++ = pos->Info.name[i];
+        *ip++ = ' ';
+
+
+        return;
     }
 
     assert(pos->Left->Info.mode  == MODE_VAR);

@@ -56,7 +56,7 @@ void print_std_mode(tree_elem* pos, FILE* dot_out);
 
 void make_elf(Function* funcs, char* base_name, char* elf_name);
 
-size_t Compile_tree(Function* curr_func, Function* func_table, char* start_pos);
+size_t Compile_tree(Function* curr_func, Function* func_table, char** start_pos);
 
 void push_func_addr(char* name, Function* func_table, char* start_pos);
 
@@ -91,6 +91,13 @@ void take_from_memory(int offset);
 void push_to_memory(char* name, Variables* arr_of_vars);
 
 char* find_add_func(char* name_func, Function* arr_of_func);
+
+void push_param(int counter);
+
+void save_registers(Variables* arr_of_func);
+
+void return_registers(Variables* arr_of_func);
+
 
 
 #endif //BACKEND_BACKEND_H

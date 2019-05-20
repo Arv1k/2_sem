@@ -33,10 +33,11 @@ void make_std(char* buffer, Function* funcs) {
 
         char *tmp = pc;
         pc = strchr(pc, '(');
-        *pc = '\0';
+        *(pc - 2) = '\0';
 
 
         funcs[ipert].name = strdup(tmp);
+        *(pc - 2) = ' ';
         *pc++ = '(';
         pc++;
 
@@ -426,8 +427,9 @@ void make_elf(Function* funcs, char* base_name, char* elf_name) {
     fclose(max);
 
     pos = buffer;
-
     while (*((unsigned char*) pos) != 0x90) pos++;
+
+    char* save_pos = pos;
 
     //print();
 
@@ -439,10 +441,31 @@ void make_elf(Function* funcs, char* base_name, char* elf_name) {
         *pos++ = 0x89;  //
         *pos++ = 0xe5;  //
 
-        Compile_tree(&(funcs[uyu]), funcs, pos);
+        Compile_tree(&(funcs[uyu]), funcs, &pos);
         uyu++;
 
         *pos++ = 0x5d;  // pop rbp
+        *pos++ = 0x90;
+        *pos++ = 0x90;
+    }
+
+    pos = save_pos;
+
+    uyu = 0;
+
+    while (funcs[uyu].tree_func) {
+        *pos++ = 0x55;  // push rbp
+
+        *pos++ = 0x48;  // mov rbp, rsp
+        *pos++ = 0x89;  //
+        *pos++ = 0xe5;  //
+
+        Compile_tree(&(funcs[uyu]), funcs, &pos);
+        uyu++;
+
+        *pos++ = 0x5d;  // pop rbp
+        *pos++ = 0x90;
+        *pos++ = 0x90;
     }
 
     FILE* maxu = fopen(elf_name, "wb");
@@ -460,15 +483,19 @@ void make_elf(Function* funcs, char* base_name, char* elf_name) {
     fclose(elf);*/
 }
 
-size_t Compile_tree(Function* curr_func, Function* func_table, char* start_pos) {
+size_t Compile_tree(Function* curr_func, Function* func_table, char** start_pos) {
     assert(curr_func != nullptr);
     assert(func_table != nullptr);
 
+    pos = *start_pos;
+
     transform_var_table(curr_func);
-    push_func_addr(curr_func->name, func_table, start_pos);
+    push_func_addr(curr_func->name, func_table, *start_pos);
     compile_node(curr_func->tree_func->Tamyr, curr_func->var, func_table);
 
-    return pos - start_pos;
+    *start_pos = pos;
+
+    return pos - *start_pos;
 }
 
 void push_func_addr(char* name, Function* func_table, char* start_pos) {
@@ -495,118 +522,171 @@ void transform_var_table(Function* curr_func) {
     }
 }
 
+int num_of_param_dont_touch_it = 0;
+
 void compile_node(tree_elem* curr_node, Variables* arr_of_vars, Function* arr_of_func) {
     if (!curr_node) return;
 
     switch (curr_node->Info.mode) {
-        case M_I: {
+        case M_I: { // !
             compile_node(curr_node->Left, arr_of_vars, arr_of_func);
+
             char *jump_pos = pos;
             pos += 4;
+
             compile_node(curr_node->Right, arr_of_vars, arr_of_func);
+
             int offset = pos - jump_pos - 4;
+
             *((int *) jump_pos) = offset;
+
             break;
         }
-        case M_O: {
-            compile_node(curr_node->Right, arr_of_vars, arr_of_func);
+
+        case M_O: // !
             compile_node(curr_node->Left, arr_of_vars, arr_of_func);
+            compile_node(curr_node->Right, arr_of_vars, arr_of_func);
+
             cmp();
+
             if (curr_node->Info.number == '=') {
-                (*pos++) = 0x0f;
-                *(pos++) = 0x85;
-            } else if (curr_node->Info.number == '>') {
-                (*pos++) = 0x0f;
-                *(pos++) = 0x86;
-            } else if (curr_node->Info.number == '<') {
-                (*pos++) = 0x0f;
-                *(pos++) = 0x83;
+                *pos++ = 0x0f;
+                *pos++ = 0x85;
             }
+
+            else if (curr_node->Info.number == '>') {
+                *pos++ = 0x0f;
+                *pos++ = 0x86;
+            }
+
+            else if (curr_node->Info.number == '<') {
+                *pos++ = 0x0f;
+                *pos++ = 0x83;
+            }
+
             break;
-        }
-        case M_s: {
-            compile_node(curr_node->Right, arr_of_vars, arr_of_func);
+
+        case M_s: // !
             compile_node(curr_node->Left, arr_of_vars, arr_of_func);
+            compile_node(curr_node->Right, arr_of_vars, arr_of_func);
 
             if (curr_node->Info.number == '+')
                 add();
+
             else if (curr_node->Info.number == '-')
                 sub();
+
             else if (curr_node->Info.number == '/')
                 div();
+
             else if (curr_node->Info.number == '*')
                 mul();
 
             break;
-        }
-        case M_V: {
+
+        case M_V: { // !
             int offset = find_var(curr_node->Info.name, arr_of_vars);
+
             take_from_memory(offset);
+
             break;
         }
-        case M_B: {
+
+        case M_B: // !
             compile_node(curr_node->Left, arr_of_vars, arr_of_func);
             compile_node(curr_node->Right, arr_of_vars, arr_of_func);
+
             break;
-        }
-        case M_R: {
+
+        case M_R: //???
             compile_node(curr_node->Left, arr_of_vars, arr_of_func);
-            *(pos) = 0x58;
+
+            *(pos++) = 0x58;
+
             aligh_stack(arr_of_vars);
-            *(pos) = 0x5d;
-            pos++;
-            *(pos) = 0xc3;
-            pos++;
-            break;
-        }
 
-        case M_i:
+            *(pos++) = 0x5d;
+            *(pos++) = 0xc3;
 
             break;
 
-        case M_N:
+        case M_N: // !
             num(curr_node->Info.number);
             break;
 
-        case M_L:
-
-            break;
-
-        case M_S:
-            if (curr_node->Info.number == 0) {
-                scan();
-                compile_node(curr_node->Left, arr_of_vars, arr_of_func);
-            }
-            else if (curr_node->Info.number == 1) {
+        case M_S: // ?
+            if (curr_node->Info.number == 1) {
                 compile_node(curr_node->Left, arr_of_vars, arr_of_func);
                 print();
             }
+
+            else if (curr_node->Info.number == 0) {
+                scan();
+            }
+
             break;
 
-        case M_C:
+        case M_C: // ?
+            if (curr_node->Left != nullptr)
+                compile_node(curr_node->Left, arr_of_vars, arr_of_func);
+
+            save_registers(arr_of_vars);
+            *pos++ = 0xe8;
+
+            *((int*) pos) = find_add_func(curr_node->Info.name, arr_of_func) - (pos + 4);
+            pos += 4;
+            return_registers(arr_of_vars);
+            *pos++ = 0x50;
+
+            break;
+
+        case M_P: // ???
+            compile_node(curr_node->Left, arr_of_vars, arr_of_func);
+
+            num_of_param_dont_touch_it++;
+            push_param(num_of_param_dont_touch_it);
+
             if (curr_node->Right != nullptr)
                 compile_node(curr_node->Right, arr_of_vars, arr_of_func);
 
-            *pos = 0xe8;
-            pos++;
-            *((int*) pos) = find_add_func(curr_node->Info.name, arr_of_func) - (pos + 4);
-            pos += 4;
+            num_of_param_dont_touch_it--;
             break;
 
-        case M_P:
-            compile_node(curr_node->Left, arr_of_vars, arr_of_func);
+        case M_e: // !
             compile_node(curr_node->Right, arr_of_vars, arr_of_func);
-            break;
 
-        case M_e:
-            compile_node(curr_node->Right, arr_of_vars, arr_of_func);
-            *pos = 0x58;
-            pos++;
+            *pos++ = 0x58; // pop rax
 
             push_to_memory(curr_node->Left->Info.name, arr_of_vars);
             break;
+
+        default:
+
+            return;
     }
     return;
+}
+
+void push_param(int counter) {
+    if (counter > 6) {
+        return;
+    }
+
+    else if (counter == 1)
+        *(pos++) = 0x5f;
+    else if (counter == 2)
+        *(pos++) = 0x5e;
+    else if (counter == 3)
+        *(pos++) = 0x5a;
+    else if (counter == 4)
+        *(pos++) = 0x59;
+    else if (counter == 5) {
+        *(pos++) = 0x41;
+        *(pos++) = 0x58;
+    } else if (counter == 6) {
+        *(pos++) = 0x41;
+        *(pos++) = 0x59;
+    }
 }
 
 char* find_add_func(char* name_func, Function* arr_of_func) {
@@ -624,107 +704,83 @@ void push_to_memory(char* name, Variables* arr_of_vars) {
     int offset = find_var(name, arr_of_vars);
 
     if (offset <= 0) {
-        *(pos) = 0x48;
-        pos++;
-        *(pos) = 0x89;
-        pos++;
-        *(pos) = 0x45;
+        *(pos++) = 0x48; // mov [rbp + offset], rax
+        *(pos++) = 0x89; //
+        *(pos++) = 0x45; //
+        *(pos++) = 0x00 + (char) offset;
+    }
 
-        pos++;
-        *(pos) = 0x00 + (char) offset;
-        pos++;
-    } else {
+    else {
         if (offset < 5) {
-            *(pos) = 0x48;
-            pos++;
-            *(pos) = 0x89;
+            *(pos++) = 0x48;
+            *(pos++) = 0x89;
+
             switch (offset) {
                 case 1:
-                    pos++;
-                    *(pos) = 0xc7;
+                    *(pos++) = 0xc7;
                     break;
                 case 2:
-                    pos++;
-                    *(pos) = 0xc6;
+                    *(pos++) = 0xc6;
                     break;
                 case 3:
-                    pos++;
-                    *(pos) = 0xc2;
+                    *(pos++) = 0xc2;
                     break;
                 case 4:
-                    pos++;
-                    *(pos) = 0xc1;
+                    *(pos++) = 0xc1;
                     break;
             }
-        } else if (offset == 5) {
-            *(pos) = 0x49;
-            pos++;
-            *(pos) = 0x89;
-            pos++;
-            *(pos) = 0xc0;
-        } else if (offset == 6) {
-            *(pos) = 0x49;
-            pos++;
-            *(pos) = 0x89;
-            pos++;
-            *(pos) = 0xc1;
         }
-        pos++;
+
+        else if (offset == 5) {
+            *(pos++) = 0x49;
+            *(pos++) = 0x89;
+            *(pos++) = 0xc0;
+        }
+
+        else if (offset == 6) {
+            *(pos++) = 0x49;
+            *(pos++) = 0x89;
+            *(pos++) = 0xc1;
+        }
     }
 
 }
 
 void take_from_memory(int offset) {
     if (offset <= 0) {
-        *(pos) = 0x48;
-        pos++;
-        *(pos) = 0x8b;
-        pos++;
-        *(pos) = 0x45;
-        pos++;
-        *(pos) = 0x00 + (char) offset;
-        pos++;
-        *(pos) = 0x50;
-        pos++;
+        *(pos++) = 0x48;  // mov [rbp + offset], rax
+        *(pos++) = 0x8b;  //
+        *(pos++) = 0x45;  //
+        *(pos++) = 0x00 + (char) offset;
+        *(pos++) = 0x50;  // push rax
     } else {
         if (offset < 5) {
-            *(pos) = 0x48;
-            pos++;
-            *(pos) = 0x89;
+            *(pos++) = 0x48;
+            *(pos++) = 0x89;
             switch (offset) {
                 case 1:
-                    pos++;
-                    *(pos) = 0xf8;
+                    *(pos++) = 0xf8;
                     break;
                 case 2:
-                    pos++;
-                    *(pos) = 0xf0;
+                    *(pos++) = 0xf0;
                     break;
                 case 3:
-                    pos++;
-                    *(pos) = 0xc8;
+                    *(pos++) = 0xc8;
                     break;
                 case 4:
-                    pos++;
-                    *(pos) = 0xd0;
+                    *(pos++) = 0xd0;
                     break;
             }
         } else if (offset == 5) {
-            *(pos) = 0x4c;
-            pos++;
-            *(pos) = 0x89;
-            pos++;
-            *(pos) = 0xc0;
+            *(pos++) = 0x4c;
+            *(pos++) = 0x89;
+            *(pos++) = 0xc0;
         } else if (offset == 6) {
-            *(pos) = 0x4c;
-            pos++;
-            *(pos) = 0x89;
-            pos++;
-            *(pos) = 0xc8;
+            *(pos++) = 0x4c;
+            *(pos++) = 0x89;
+            *(pos++) = 0xc8;
         }
-        pos++;
-        *(pos) = 0x50;
-        pos++;
+        *(pos++) = 0x50;
     }
 }
 
@@ -746,7 +802,7 @@ void cut_stack(Variables* arr_of_vars) {
 void aligh_stack(Variables* arr_of_vars) {
     int i = 0;
     int counter = 0;
-    while (arr_of_vars[i].name_var!= nullptr) {
+    while (arr_of_vars[i].name_var != nullptr) {
         if (arr_of_vars[i].place_var < 0)
             counter++;
         i++;
@@ -781,7 +837,7 @@ void add() {
 }
 
 void div() {
-    *(pos) = 0x58;// pop rax, pop rbx
+    *(pos++) = 0x58;// pop rax, pop rbx
     *(pos++) = 0x5b;
 
     *(pos++) = 0x52;// push rdx
@@ -1050,4 +1106,83 @@ void print() {
     *pos++ = 0x59; //ahahahhahahhahahha
     *pos++ = 0x5e; //ahahahhahahhahahha
     *pos++ = 0x5f; //ahahahhahahhahahha
+}
+
+
+void save_registers(Variables* arr_of_func) {
+    int i = 0;
+    while (arr_of_func[i].name_var != nullptr) {
+        if (arr_of_func[i].place_var > 0) {
+            switch (arr_of_func[i].place_var) {
+                case 1:
+                    *pos = 0x57;
+                    pos++;
+                    break;
+                case 2:
+                    *pos = 0x56;
+                    pos++;
+                    break;
+                case 3:
+                    *pos = 0x52;
+                    pos++;
+                    break;
+                case 4:
+                    *pos = 0x51;
+                    pos++;
+                    break;
+                case 5:
+                    *pos = 0x41;
+                    pos++;
+                    *pos = 0x50;
+                    pos++;
+                    break;
+                case 6:
+                    *pos = 0x41;
+                    pos++;
+                    *pos = 0x51;
+                    pos++;
+                    break;
+            }
+        }
+        i++;
+    }
+}
+
+void return_registers(Variables* arr_of_func) {
+    int i = 0;
+    while (arr_of_func[i].name_var != nullptr) {
+        if (arr_of_func[i].place_var > 0) {
+            switch (arr_of_func[i].place_var) {
+                case 1:
+                    *pos = 0x5f;
+                    pos++;
+                    break;
+                case 2:
+                    *pos = 0x5e;
+                    pos++;
+                    break;
+                case 3:
+                    *pos = 0x5a;
+                    pos++;
+                    break;
+                case 4:
+                    *pos = 0x59;
+                    pos++;
+                    break;
+                case 5:
+                    *pos = 0x41;
+                    pos++;
+                    *pos = 0x58;
+                    pos++;
+                    break;
+                case 6:
+                    *pos = 0x41;
+                    pos++;
+                    *pos = 0x59;
+                    pos++;
+                    break;
+            }
+        }
+        i++;
+    }
 }
