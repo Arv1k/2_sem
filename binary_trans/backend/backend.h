@@ -82,7 +82,7 @@ void sub();
 
 void mul();
 
-void num();
+void num(int number);
 
 void scan();
 

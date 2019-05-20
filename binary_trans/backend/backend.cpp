@@ -414,24 +414,24 @@ void print_std_mode(tree_elem* position, FILE* dot_out) {
     assert(dot_out);
 }
 
-unsigned char* pos = nullptr;
+char* pos = nullptr;
 
 void make_elf(Function* funcs, char* base_name, char* elf_name) {
     FILE* max = fopen(base_name, "rb");
     long num_symbols = Size(max);
 
-    auto buffer = (unsigned char*) calloc(num_symbols, sizeof(char));
+    auto buffer = (char*) calloc(num_symbols, sizeof(char));
 
     fread(buffer, sizeof(char), num_symbols, max);
     fclose(max);
 
     pos = buffer;
 
-    while ((*pos) != 0x90) pos++;
+    while (*((unsigned char*) pos) != 0x90) pos++;
 
-    print();
+    //print();
 
-    //Compile_tree(&funcs[0], funcs, pos);
+    Compile_tree(&(funcs[0]), funcs, pos);
 
     FILE* maxu = fopen(elf_name, "wb");
     fwrite(buffer, sizeof(char), num_symbols, maxu);
@@ -454,7 +454,7 @@ char* translate_funcs(Function* funcs) {
 }
 
 
-/*size_t Compile_tree(Function* curr_func, Function* func_table, char* start_pos) {
+size_t Compile_tree(Function* curr_func, Function* func_table, char* start_pos) {
     assert(curr_func != nullptr);
     assert(func_table != nullptr);
 
@@ -474,7 +474,7 @@ void push_func_addr(char* name, Function* func_table, char* start_pos) {
         }
         i++;
     }
-}*/
+}
 
 void transform_var_table(Function* curr_func) {
     int i = 0;
@@ -488,7 +488,6 @@ void transform_var_table(Function* curr_func) {
     }
 }
 
-/*
 void compile_node(tree_elem* curr_node, Variables* arr_of_vars, Function* arr_of_func) {
     if (!curr_node) return;
 
@@ -587,11 +586,45 @@ void compile_node(tree_elem* curr_node, Variables* arr_of_vars, Function* arr_of
             break;
         }
 
+        case M_i:
 
+            break;
+
+        case M_N:
+            num(curr_node->Info.number);
+            break;
+
+        case M_L:
+
+            break;
+
+        case M_S:
+            if (curr_node->Info.number == 0) {
+                scan();
+                compile_node(curr_node->Left, arr_of_vars, arr_of_func);
+            }
+            else if (curr_node->Info.number == 1) {
+                compile_node(curr_node->Left, arr_of_vars, arr_of_func);
+                print();
+            }
+            break;
+
+        case M_C:
+
+            break;
+
+        case M_P:
+            compile_node(curr_node->Left, arr_of_vars, arr_of_func);
+            compile_node(curr_node->Right, arr_of_vars, arr_of_func);
+            break;
+
+        case M_e:
+
+            break;
     }
     return;
 }
-*/
+
 
 void cut_stack(Variables* arr_of_vars) {
     int i = 0;
@@ -787,12 +820,12 @@ void scan() {
 }
 
 void print() {
-     *pos++ = 0xb8;
+    /* *pos++ = 0xb8;
     *pos++ = 0x34;
     *pos++ = 0xb1;
     *pos++ = 0x01;
     *pos++ = 0x00;
-    *pos++ = 0x50;
+    *pos++ = 0x50;*/
 
     *pos++ = 0x55; //ahahahhahahhahahha
     *pos++ = 0x48; //ahahahhahahhahahha

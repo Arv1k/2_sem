@@ -12,16 +12,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e19586b-75f7-464b-9723-58acdba8d33f" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Language/dott.dot" beforeDir="false" afterPath="$PROJECT_DIR$/Language/dott.dot" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Language/input" beforeDir="false" afterPath="$PROJECT_DIR$/Language/input" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Language/tree.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Language/tree.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/backend.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/backend/backend.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/backend.h" beforeDir="false" afterPath="$PROJECT_DIR$/backend/backend.h" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/cmake-build-debug/CMakeFiles/backend.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/backend/cmake-build-debug/CMakeFiles/backend.dir/CXX.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/cmake-build-debug/CMakeFiles/backend.dir/backend.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/backend/cmake-build-debug/CMakeFiles/backend.dir/backend.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/cmake-build-debug/CMakeFiles/backend.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/backend/cmake-build-debug/CMakeFiles/backend.dir/main.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/cmake-build-debug/backend" beforeDir="false" afterPath="$PROJECT_DIR$/backend/cmake-build-debug/backend" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/dott.dot" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dott.dot" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/backend/main.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/hey_you" beforeDir="false" afterPath="$PROJECT_DIR$/backend/hey_you" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/std_tree" beforeDir="false" afterPath="$PROJECT_DIR$/std_tree" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../hash_asm/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../hash_asm/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../hash_asm/hash_asm.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../hash_asm/hash_asm.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../hash_asm/hash_asm.h" beforeDir="false" afterPath="$PROJECT_DIR$/../hash_asm/hash_asm.h" afterDir="false" />
@@ -41,7 +42,7 @@
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="CMakeBuildProfile:Debug" />
   <component name="FileEditorManager">
-    <splitter split-orientation="horizontal" split-proportion="0.7167382">
+    <splitter split-orientation="horizontal" split-proportion="0.82027894">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
           <file pinned="false" current-in-tab="false">
@@ -65,26 +66,35 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Language/language.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="526">
+                <state relative-caret-position="454">
                   <caret line="1025" selection-start-line="1025" selection-end-line="1025" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/Language/input">
+            <entry file="file://$PROJECT_DIR$/Language/tree/binary_tree.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-64">
-                  <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+                <state relative-caret-position="456">
+                  <caret line="77" column="5" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
                 </state>
               </provider>
             </entry>
           </file>
           <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/Language/input">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="120">
+                  <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/std_tree">
               <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret column="4" selection-end-line="1" />
+                <state relative-caret-position="24">
+                  <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
                 </state>
               </provider>
             </entry>
@@ -93,11 +103,11 @@
       </split-first>
       <split-second>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/Language/language.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="840">
-                  <caret line="68" column="26" selection-start-line="68" selection-start-column="26" selection-end-line="68" selection-end-column="26" />
+                <state relative-caret-position="192">
+                  <caret line="68" column="35" selection-start-line="68" selection-start-column="32" selection-end-line="68" selection-end-column="35" />
                   <folding>
                     <element signature="e#58#75#0" expanded="true" />
                   </folding>
@@ -105,10 +115,10 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/Language/tree/binary_tree.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="307">
+                <state relative-caret-position="360">
                   <caret line="55" column="1" selection-start-line="55" selection-start-column="1" selection-end-line="55" selection-end-column="1" />
                 </state>
               </provider>
@@ -147,10 +157,10 @@
         <option value="$PROJECT_DIR$/Language/language.h" />
         <option value="$PROJECT_DIR$/Language/std_tree" />
         <option value="$PROJECT_DIR$/Language/main.cpp" />
-        <option value="$PROJECT_DIR$/Language/input" />
         <option value="$PROJECT_DIR$/Language/tree/binary_tree.h" />
         <option value="$PROJECT_DIR$/Language/language.cpp" />
         <option value="$PROJECT_DIR$/std_tree" />
+        <option value="$PROJECT_DIR$/Language/input" />
       </list>
     </option>
   </component>
@@ -230,12 +240,12 @@
       <workItem from="1558204255164" duration="429000" />
       <workItem from="1558204704138" duration="1873000" />
       <workItem from="1558208071836" duration="13065000" />
-      <workItem from="1558261359162" duration="26092000" />
+      <workItem from="1558261359162" duration="28139000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="41459000" />
+    <option name="totallyTimeSpent" value="43506000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1920" height="1080" extended-state="6" />
@@ -246,7 +256,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.329718" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -321,23 +331,6 @@
     <entry file="file://$PROJECT_DIR$/Language/tree.jpg">
       <provider selected="true" editor-type-id="images" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/Language/tree/binary_tree.cpp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2136">
-          <caret line="77" column="5" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Language/language.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="840">
-          <caret line="68" column="26" selection-start-line="68" selection-start-column="26" selection-end-line="68" selection-end-column="26" />
-          <folding>
-            <element signature="e#58#75#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Language/std_tree">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="24">
@@ -359,13 +352,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Language/input">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-64">
-          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Language/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="835">
@@ -373,24 +359,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Language/tree/binary_tree.h">
+    <entry file="file://$PROJECT_DIR$/Language/language.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="55" column="1" selection-start-line="55" selection-start-column="1" selection-end-line="55" selection-end-column="1" />
+        <state relative-caret-position="454">
+          <caret line="1025" selection-start-line="1025" selection-end-line="1025" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Language/language.cpp">
+    <entry file="file://$PROJECT_DIR$/Language/tree/binary_tree.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="1025" selection-start-line="1025" selection-end-line="1025" />
+        <state relative-caret-position="456">
+          <caret line="77" column="5" selection-start-line="77" selection-start-column="5" selection-end-line="77" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Language/tree/binary_tree.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="55" column="1" selection-start-line="55" selection-start-column="1" selection-end-line="55" selection-end-column="1" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/std_tree">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="4" selection-end-line="1" />
+        <state relative-caret-position="24">
+          <caret line="2" column="7" lean-forward="true" selection-start-line="2" selection-start-column="7" selection-end-line="2" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Language/language.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="68" column="35" selection-start-line="68" selection-start-column="32" selection-end-line="68" selection-end-column="35" />
+          <folding>
+            <element signature="e#58#75#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Language/input">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
         </state>
       </provider>
     </entry>
