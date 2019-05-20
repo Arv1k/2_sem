@@ -15,12 +15,14 @@
       <change beforePath="$PROJECT_DIR$/backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/backend.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/backend/backend.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/backend.h" beforeDir="false" afterPath="$PROJECT_DIR$/backend/backend.h" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/cmake-build-debug/CMakeFiles/backend.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/backend/cmake-build-debug/CMakeFiles/backend.dir/CXX.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/cmake-build-debug/CMakeFiles/backend.dir/backend.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/backend/cmake-build-debug/CMakeFiles/backend.dir/backend.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/cmake-build-debug/CMakeFiles/backend.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/backend/cmake-build-debug/CMakeFiles/backend.dir/main.cpp.o" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/cmake-build-debug/CMakeFiles/backend.dir/tree/binary_tree.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/backend/cmake-build-debug/CMakeFiles/backend.dir/tree/binary_tree.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/cmake-build-debug/backend" beforeDir="false" afterPath="$PROJECT_DIR$/backend/cmake-build-debug/backend" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/dott.dot" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dott.dot" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/backend/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/tree.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/backend/tree.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/tree/binary_tree.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/backend/tree/binary_tree.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/std_tree" beforeDir="false" afterPath="$PROJECT_DIR$/std_tree" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../hash_asm/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../hash_asm/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../hash_asm/hash_asm.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../hash_asm/hash_asm.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../hash_asm/hash_asm.h" beforeDir="false" afterPath="$PROJECT_DIR$/../hash_asm/hash_asm.h" afterDir="false" />
@@ -82,8 +84,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/std_tree">
               <provider selected="true" editor-type-id="text-editor">
-                <state>
-                  <caret column="80" selection-start-column="80" selection-end-column="80" />
+                <state relative-caret-position="24">
+                  <caret line="1" column="106" selection-start-line="1" selection-start-column="106" selection-end-line="1" selection-end-column="106" />
                 </state>
               </provider>
             </entry>
@@ -242,23 +244,23 @@
       <workItem from="1558204255164" duration="429000" />
       <workItem from="1558204704138" duration="1873000" />
       <workItem from="1558208071836" duration="13065000" />
-      <workItem from="1558261359162" duration="23185000" />
+      <workItem from="1558261359162" duration="25222000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38552000" />
+    <option name="totallyTimeSpent" value="40589000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1920" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4989154" weight="0.18669528" />
-      <window_info id="Structure" order="1" sideWeight="0.5010846" side_tool="true" visible="true" weight="0.18669528" />
+      <window_info id="Structure" order="1" sideWeight="0.5010846" side_tool="true" weight="0.18669528" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.329718" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -280,14 +282,14 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.329718" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.329718" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Database Changes" order="7" />
       <window_info anchor="bottom" id="Messages" order="8" weight="0.329718" />
-      <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.329718" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.329718" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="CMake" order="12" weight="0.329718" />
@@ -401,8 +403,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/std_tree">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="80" selection-start-column="80" selection-end-column="80" />
+        <state relative-caret-position="24">
+          <caret line="1" column="106" selection-start-line="1" selection-start-column="106" selection-end-line="1" selection-end-column="106" />
         </state>
       </provider>
     </entry>

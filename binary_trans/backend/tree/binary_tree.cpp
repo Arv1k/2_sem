@@ -64,7 +64,7 @@ tree_elem* TreeNode(tree* nameTree, data_t elem, char branch, tree_elem* positio
 
 
 Var variables[32] = {};
-int pos = 0;
+int pOs = 0;
 int num = 0;
 int jump = 0;
 int jump_tmp = 0;
@@ -159,8 +159,8 @@ void TreePrint(tree_elem* position, FILE* enterTree) {
 
         case MODE_BORN:
             variables[num].Name = ((position->Left)->Info).name;
-            variables[num].position = pos;
-            pos++;
+            variables[num].position = pOs;
+            pOs++;
             num++;
 
             return;

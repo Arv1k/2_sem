@@ -18,7 +18,9 @@ struct Variables {
 struct Function {
     char* name = nullptr;
     tree* tree_func = nullptr;
+    size_t given_num = 0;
     size_t var_num = 0;
+    size_t sdvig = 0;
     Variables var[10] = {};
 };
 
@@ -51,5 +53,10 @@ void std_tree_dot(tree* nameTree, char* dot_out);
 void create_std_tree(tree_elem* pos, FILE* dot_out);
 
 void print_std_mode(tree_elem* pos, FILE* dot_out);
+
+void make_elf(Function* funcs, char* elf_name);
+
+char* translate_funcs(Function* funs);
+
 
 #endif //BACKEND_BACKEND_H

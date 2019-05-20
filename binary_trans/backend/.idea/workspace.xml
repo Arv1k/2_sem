@@ -16,9 +16,9 @@
       <change beforePath="$PROJECT_DIR$/backend.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/backend.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend.h" beforeDir="false" afterPath="$PROJECT_DIR$/backend.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/backend" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/dott.dot" beforeDir="false" afterPath="$PROJECT_DIR$/dott.dot" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tree.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/tree.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tree/binary_tree.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/tree/binary_tree.cpp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../std_tree" beforeDir="false" afterPath="$PROJECT_DIR$/../std_tree" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../hash_asm/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../../hash_asm/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../hash_asm/hash_asm.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../../hash_asm/hash_asm.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../../hash_asm/hash_asm.h" beforeDir="false" afterPath="$PROJECT_DIR$/../../hash_asm/hash_asm.h" afterDir="false" />
@@ -53,8 +53,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/tree/binary_tree.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="6576">
-                  <caret line="274" selection-start-line="274" selection-end-line="274" />
+                <state relative-caret-position="239">
+                  <caret line="11" column="75" selection-start-line="11" selection-start-column="72" selection-end-line="11" selection-end-column="75" />
                 </state>
               </provider>
             </entry>
@@ -71,8 +71,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/main.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="432">
-                  <caret line="18" selection-start-line="18" selection-end-line="18" />
+                <state relative-caret-position="384">
+                  <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
                 </state>
               </provider>
             </entry>
@@ -80,8 +80,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/backend.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="451">
-                  <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
+                <state relative-caret-position="379">
+                  <caret line="46" column="13" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
                   <folding>
                     <element signature="e#54#94#0" expanded="true" />
                   </folding>
@@ -92,8 +92,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/backend.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1032">
-                  <caret line="49" column="16" lean-forward="true" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
+                <state relative-caret-position="193">
+                  <caret line="433" column="12" lean-forward="true" selection-start-line="433" selection-start-column="12" selection-end-line="433" selection-end-column="12" />
                 </state>
               </provider>
             </entry>
@@ -102,11 +102,11 @@
       </split-first>
       <split-second>
         <leaf>
-          <file pinned="false" current-in-tab="true">
+          <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/backend.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="24">
-                  <caret line="26" column="9" lean-forward="true" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
+                <state relative-caret-position="163">
+                  <caret line="21" column="14" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
                   <folding>
                     <element signature="e#54#94#0" expanded="true" />
                   </folding>
@@ -114,11 +114,11 @@
               </provider>
             </entry>
           </file>
-          <file pinned="false" current-in-tab="false">
+          <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/backend.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="4704">
-                  <caret line="250" column="22" selection-start-line="250" selection-start-column="22" selection-end-line="250" selection-end-column="22" />
+                <state relative-caret-position="185">
+                  <caret line="418" selection-start-line="418" selection-end-line="418" />
                 </state>
               </provider>
             </entry>
@@ -133,6 +133,7 @@
       <find>0x45</find>
       <find>CounT</find>
       <find>get_tree()</find>
+      <find>pos</find>
     </findStrings>
     <replaceStrings>
       <replace>M_I</replace>
@@ -142,6 +143,8 @@
       <replace>M_P</replace>
       <replace>M_e</replace>
       <replace>get_tree(funcs)</replace>
+      <replace>position</replace>
+      <replace>pOs</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -151,9 +154,10 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/tree/binary_tree.cpp" />
         <option value="$PROJECT_DIR$/backend.h" />
-        <option value="$PROJECT_DIR$/main.cpp" />
         <option value="$PROJECT_DIR$/backend.cpp" />
+        <option value="$PROJECT_DIR$/main.cpp" />
       </list>
     </option>
   </component>
@@ -238,12 +242,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1558274939524</updated>
-      <workItem from="1558274940987" duration="17297000" />
+      <workItem from="1558274940987" duration="28561000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17297000" />
+    <option name="totallyTimeSpent" value="28561000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1920" height="1080" extended-state="6" />
@@ -253,13 +257,13 @@
       <window_info content_ui="combo" id="Project" order="1" weight="0.1668455" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" order="0" />
-      <window_info anchor="bottom" id="Terminal" order="1" />
+      <window_info anchor="bottom" id="Terminal" order="1" weight="0.329718" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="3" />
       <window_info anchor="bottom" id="Messages" order="4" weight="0.3286334" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Find" order="6" />
-      <window_info anchor="bottom" id="Run" order="7" weight="0.329718" />
+      <window_info active="true" anchor="bottom" id="Run" order="7" visible="true" weight="0.329718" />
       <window_info anchor="bottom" id="Debug" order="8" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="CMake" order="10" weight="0.329718" />
@@ -275,14 +279,14 @@
       <window_info content_ui="combo" id="Project" order="1" weight="0.1668455" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" order="0" />
-      <window_info anchor="bottom" id="Terminal" order="1" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="1" visible="true" weight="0.329718" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="3" />
       <window_info anchor="bottom" id="Messages" order="4" weight="0.3286334" />
       <window_info anchor="bottom" id="Message" order="5" />
       <window_info anchor="bottom" id="Find" order="6" />
       <window_info anchor="bottom" id="Run" order="7" weight="0.329718" />
-      <window_info active="true" anchor="bottom" id="Debug" order="8" visible="true" weight="0.3991323" />
+      <window_info anchor="bottom" id="Debug" order="8" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
       <window_info anchor="bottom" id="CMake" order="10" weight="0.329718" />
       <window_info anchor="bottom" id="Inspection" order="11" weight="0.4" />
@@ -297,15 +301,6 @@
     <option name="version" value="1" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/main.cpp</url>
-          <line>17</line>
-          <option name="timeStamp" value="19" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
         <watch expression="funcs" language="ObjectiveC" />
@@ -341,13 +336,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tree/binary_tree.h">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="48">
-          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
@@ -355,17 +343,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tree/binary_tree.cpp">
+    <entry file="file://$PROJECT_DIR$/tree/binary_tree.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6576">
-          <caret line="274" selection-start-line="274" selection-end-line="274" />
+        <state relative-caret-position="48">
+          <caret line="2" lean-forward="true" selection-start-line="2" selection-end-line="2" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/backend.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="44" column="13" selection-start-line="44" selection-start-column="13" selection-end-line="44" selection-end-column="13" />
+        <state relative-caret-position="379">
+          <caret line="46" column="13" selection-start-line="46" selection-start-column="13" selection-end-line="46" selection-end-column="13" />
           <folding>
             <element signature="e#54#94#0" expanded="true" />
           </folding>
@@ -374,15 +362,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/backend.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1032">
-          <caret line="49" column="16" lean-forward="true" selection-start-line="49" selection-start-column="16" selection-end-line="49" selection-end-column="16" />
+        <state relative-caret-position="193">
+          <caret line="433" column="12" lean-forward="true" selection-start-line="433" selection-start-column="12" selection-end-line="433" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tree/binary_tree.cpp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="239">
+          <caret line="11" column="75" selection-start-line="11" selection-start-column="72" selection-end-line="11" selection-end-column="75" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        <state relative-caret-position="384">
+          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="4" />
         </state>
       </provider>
     </entry>
