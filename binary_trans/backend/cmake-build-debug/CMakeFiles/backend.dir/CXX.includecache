@@ -18,6 +18,10 @@ cmath
 cstdlib
 -
 
+/home/arv1k/CLionProjects/2_sem/binary_trans/backend/backend.cpp
+backend.h
+/home/arv1k/CLionProjects/2_sem/binary_trans/backend/backend.h
+
 /home/arv1k/CLionProjects/2_sem/binary_trans/backend/backend.h
 ../../../1_sem/make_enc/enc.h
 /home/arv1k/CLionProjects/1_sem/make_enc/enc.h
@@ -25,10 +29,6 @@ tree/binary_tree.h
 /home/arv1k/CLionProjects/2_sem/binary_trans/backend/tree/binary_tree.h
 cstdio
 -
-
-/home/arv1k/CLionProjects/2_sem/binary_trans/backend/main.cpp
-backend.h
-/home/arv1k/CLionProjects/2_sem/binary_trans/backend/backend.h
 
 /home/arv1k/CLionProjects/2_sem/binary_trans/backend/tree/binary_tree.h
 cstdio

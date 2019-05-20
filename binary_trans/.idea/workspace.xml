@@ -12,17 +12,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7e19586b-75f7-464b-9723-58acdba8d33f" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/backend/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/backend.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/backend/backend.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/backend.h" beforeDir="false" afterPath="$PROJECT_DIR$/backend/backend.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/cmake-build-debug/CMakeFiles/backend.dir/CXX.includecache" beforeDir="false" afterPath="$PROJECT_DIR$/backend/cmake-build-debug/CMakeFiles/backend.dir/CXX.includecache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/cmake-build-debug/CMakeFiles/backend.dir/backend.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/backend/cmake-build-debug/CMakeFiles/backend.dir/backend.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/cmake-build-debug/CMakeFiles/backend.dir/main.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/backend/cmake-build-debug/CMakeFiles/backend.dir/main.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/cmake-build-debug/CMakeFiles/backend.dir/tree/binary_tree.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/backend/cmake-build-debug/CMakeFiles/backend.dir/tree/binary_tree.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/cmake-build-debug/backend" beforeDir="false" afterPath="$PROJECT_DIR$/backend/cmake-build-debug/backend" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/backend/dott.dot" beforeDir="false" afterPath="$PROJECT_DIR$/backend/dott.dot" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend/main.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/backend/main.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/tree/binary_tree.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/backend/tree/binary_tree.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/std_tree" beforeDir="false" afterPath="$PROJECT_DIR$/std_tree" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../hash_asm/Makefile" beforeDir="false" afterPath="$PROJECT_DIR$/../hash_asm/Makefile" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../hash_asm/hash_asm.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../hash_asm/hash_asm.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../hash_asm/hash_asm.h" beforeDir="false" afterPath="$PROJECT_DIR$/../hash_asm/hash_asm.h" afterDir="false" />
@@ -84,8 +83,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/std_tree">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="24">
-                  <caret line="1" column="106" selection-start-line="1" selection-start-column="106" selection-end-line="1" selection-end-column="106" />
+                <state>
+                  <caret column="4" selection-end-line="1" />
                 </state>
               </provider>
             </entry>
@@ -156,20 +155,7 @@
     </option>
   </component>
   <component name="OCFindUsagesOptions" text="true" ivars="false" properties="true" derivedClasses="false" />
-  <component name="ProjectConfigurationFiles">
-    <option name="files">
-      <list>
-        <option value="$PROJECT_DIR$/.idea/binary_trans.iml" />
-        <option value="$PROJECT_DIR$/.idea/misc.xml" />
-        <option value="$PROJECT_DIR$/.idea/vcs.xml" />
-        <option value="$PROJECT_DIR$/.idea/modules.xml" />
-        <option value="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-        <option value="$PROJECT_DIR$/backend/.idea/backend.iml" />
-      </list>
-    </option>
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="y" value="-1" />
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="width" value="959" />
     <option name="height" value="1079" />
   </component>
@@ -244,12 +230,12 @@
       <workItem from="1558204255164" duration="429000" />
       <workItem from="1558204704138" duration="1873000" />
       <workItem from="1558208071836" duration="13065000" />
-      <workItem from="1558261359162" duration="25222000" />
+      <workItem from="1558261359162" duration="26092000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40589000" />
+    <option name="totallyTimeSpent" value="41459000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1920" height="1080" extended-state="6" />
@@ -260,7 +246,7 @@
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.329718" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.329718" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.329718" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.3991323" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -403,8 +389,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/std_tree">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="24">
-          <caret line="1" column="106" selection-start-line="1" selection-start-column="106" selection-end-line="1" selection-end-column="106" />
+        <state>
+          <caret column="4" selection-end-line="1" />
         </state>
       </provider>
     </entry>

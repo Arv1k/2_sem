@@ -15,9 +15,9 @@ void FunctionDtor(Function* func) {
 }
 
 size_t CounT = 0;
-int i = 0;
-int j = 0;
-int k = 0;
+int ipert = 0;
+int jpert = 0;
+int kpert = 0;
 
 char* pc = nullptr;
 void make_std(char* buffer, Function* funcs) {
@@ -36,7 +36,7 @@ void make_std(char* buffer, Function* funcs) {
         *pc = '\0';
 
 
-        funcs[i].name = strdup(tmp);
+        funcs[ipert].name = strdup(tmp);
         *pc++ = '(';
         pc++;
 
@@ -45,10 +45,10 @@ void make_std(char* buffer, Function* funcs) {
             pc = strchr(pc, ' ');
             *pc++ = '\0';
 
-            funcs[i].var[j].name_var = strdup(tmp);
-            funcs[i].var[j].place_var = j + 1;
-            funcs[i].given_num++;
-            j++;
+            funcs[ipert].var[jpert].name_var = strdup(tmp);
+            funcs[ipert].var[jpert].place_var = jpert + 1;
+            funcs[ipert].given_num++;
+            jpert++;
 
             while (*pc == ',') {
                 pc += 2;
@@ -57,10 +57,10 @@ void make_std(char* buffer, Function* funcs) {
                 pc = strchr(pc, ' ');
                 *pc++ = '\0';
 
-                funcs[i].var[j].name_var = strdup(tmp);
-                funcs[i].var[j].place_var = j + 1;
-                funcs[i].given_num++;
-                j++;
+                funcs[ipert].var[jpert].name_var = strdup(tmp);
+                funcs[ipert].var[jpert].place_var = jpert + 1;
+                funcs[ipert].given_num++;
+                jpert++;
             }
         }
 
@@ -70,16 +70,16 @@ void make_std(char* buffer, Function* funcs) {
 
         assert(*pc == '{');
 
-        funcs[i].tree_func = new tree;
-        TreeCtor(funcs[i].tree_func);
+        funcs[ipert].tree_func = new tree;
+        TreeCtor(funcs[ipert].tree_func);
 
-        funcs[i].tree_func->Tamyr = get_tree(funcs);
-        funcs[i].tree_func->count = CounT;
+        funcs[ipert].tree_func->Tamyr = get_tree(funcs);
+        funcs[ipert].tree_func->count = CounT;
 
         pc++;
-        i++;
-        j = 0;
-        k = 0;
+        ipert++;
+        jpert = 0;
+        kpert = 0;
         CounT = 0;
     }
 }
@@ -238,10 +238,10 @@ tree_elem* get_tree(Function* funcs) {
             *pc = '\0';
             val->Info.name = strdup(tmp);
 
-            funcs[i].var[j].name_var = val->Info.name;
-            funcs[i].var[j].place_var = ++k;
-            funcs[i].var_num++;
-            j++;
+            funcs[ipert].var[jpert].name_var = val->Info.name;
+            funcs[ipert].var[jpert].place_var = ++kpert;
+            funcs[ipert].var_num++;
+            jpert++;
 
 
             *pc = '}';
@@ -414,22 +414,279 @@ void print_std_mode(tree_elem* position, FILE* dot_out) {
     assert(dot_out);
 }
 
-void make_elf(Function* funcs, char* elf_name) {
-    assert(funcs);
+unsigned char* pos = nullptr;
+
+void make_elf(Function* funcs, char* base_name, char* elf_name) {
+    FILE* max = fopen(base_name, "rb");
+    long num_symbols = Size(max);
+
+    auto buffer = (unsigned char*) calloc(num_symbols, sizeof(char));
+
+    fread(buffer, sizeof(char), num_symbols, max);
+    fclose(max);
+
+    pos = buffer;
+
+    while ((*pos) != 0x90) pos++;
+
+    print();
+
+    //Compile_tree(&funcs[0], funcs, pos);
+
+    FILE* maxu = fopen(elf_name, "wb");
+    fwrite(buffer, sizeof(char), num_symbols, maxu);
+    fclose(maxu);
+
+    free(buffer);
+    /*assert(funcs);
     assert(elf_name);
 
     FILE* elf = fopen(elf_name, "rb");
 
     char* buffer = translate_funcs(funcs);
 
-    fclose(elf);
+    fclose(elf);*/
 }
 
 char* translate_funcs(Function* funcs) {
+    assert(funcs);
 
 }
 
-char* pos = nullptr;
+
+/*size_t Compile_tree(Function* curr_func, Function* func_table, char* start_pos) {
+    assert(curr_func != nullptr);
+    assert(func_table != nullptr);
+
+    transform_var_table(curr_func);
+    push_func_addr(curr_func->name, func_table, start_pos);
+    compile_node(curr_func->tree_func->Tamyr, curr_func->var, func_table);
+
+    return pos - start_pos;
+}
+
+void push_func_addr(char* name, Function* func_table, char* start_pos) {
+    int i = 0;
+    while (func_table[i].name != nullptr) {
+        if (!strcmp(name, func_table[i].name)) {
+            func_table[i].sdvig = pos - start_pos;
+            break;
+        }
+        i++;
+    }
+}*/
+
+void transform_var_table(Function* curr_func) {
+    int i = 0;
+    while (curr_func->var[i].name_var != nullptr) {
+        if (i < curr_func->given_num)
+            curr_func->var[i].place_var = i + 1;
+        else
+            curr_func->var[i].place_var = -((curr_func->var[i].place_var - curr_func->given_num) * 8);
+
+        i++;
+    }
+}
+
+/*
+void compile_node(tree_elem* curr_node, Variables* arr_of_vars, Function* arr_of_func) {
+    if (!curr_node) return;
+
+    switch (curr_node->Info.mode) {
+        case M_I: {
+            compile_node(curr_node->Left, arr_of_vars, arr_of_func);
+            char *jump_pos = pos;
+            pos += 4;
+            compile_node(curr_node->Right, arr_of_vars, arr_of_func);
+            int offset = pos - jump_pos - 4;
+            *((int *) jump_pos) = offset;
+            break;
+        }
+        case M_O: {
+            compile_node(curr_node->Right, arr_of_vars, arr_of_func);
+            compile_node(curr_node->Left, arr_of_vars, arr_of_func);
+            cmp();
+            if (curr_node->Info.number == '=') {
+                (*pos) = 0x0f;
+                *(pos++) = 0x85;
+            } else if (curr_node->Info.number == '>') {
+                (*pos) = 0x0f;
+                *(pos++) = 0x86;
+            } else if (curr_node->Info.number == '<') {
+                (*pos) = 0x0f;
+                *(pos++) = 0x83;
+            }
+            pos++;
+            break;
+        }
+        case M_s: {
+            compile_node(curr_node->Right, arr_of_vars, arr_of_func);
+            compile_node(curr_node->Left, arr_of_vars, arr_of_func);
+
+            if (curr_node->Info.number == '+')
+                add();
+            else if (curr_node->Info.number == '-')
+                sub();
+            else if (curr_node->Info.number == '/')
+                div();
+            else if (curr_node->Info.number == '*')
+                mul();
+
+            break;
+        }
+        case M_V: {
+            int offset = find_var(curr_node->Info.name, arr_of_vars);
+            if (offset <= 0) {
+                *(pos) = 0x48;
+                *(pos++) = 0x8b;
+                *(pos++) = 0x45;
+                *(pos++) = 0x00 + (char) offset;
+                *(pos++) = 0x50;
+                pos++;
+            } else {
+                if (offset < 5) {
+                    *(pos) = 0x48;
+                    *(pos++) = 0x89;
+                    switch (offset) {
+                        case 1:
+                            *(pos++) = 0xf8;
+                            break;
+                        case 2:
+                            *(pos++) = 0xf0;
+                            break;
+                        case 3:
+                            *(pos++) = 0xc8;
+                            break;
+                        case 4:
+                            *(pos++) = 0xd0;
+                            break;
+                    }
+                } else if (offset == 5) {
+                    *(pos) = 0x4c;
+                    *(pos++) = 0x89;
+                    *(pos++) = 0xc0;
+                } else if (offset == 6) {
+                    *(pos) = 0x4c;
+                    *(pos++) = 0x89;
+                    *(pos++) = 0xc8;
+                }
+                *(pos++) = 0x50;
+                pos++;
+            }
+            break;
+        }
+        case M_B: {
+            compile_node(curr_node->Left, arr_of_vars, arr_of_func);
+            compile_node(curr_node->Right, arr_of_vars, arr_of_func);
+            break;
+        }
+        case M_R: {
+            compile_node(curr_node->Left, arr_of_vars, arr_of_func);
+            *pos = 0x58;
+            aligh_stack(arr_of_vars);
+            break;
+        }
+
+
+    }
+    return;
+}
+*/
+
+void cut_stack(Variables* arr_of_vars) {
+    int i = 0;
+    int counter = 0;
+    while (arr_of_vars[i].name_var != nullptr) {
+        if (arr_of_vars[i].place_var < 0)
+            counter++;
+        i++;
+    }
+
+    *pos = 0x48;
+    *(pos++) = 0x83;
+    *(pos++) = 0xec;
+    *(pos++) = counter * 8;
+    pos++;
+}
+
+void aligh_stack(Variables* arr_of_vars) {
+    int i = 0;
+    int counter = 0;
+    while (arr_of_vars[i].name_var!= nullptr) {
+        if (arr_of_vars[i].place_var < 0)
+            counter++;
+        i++;
+    }
+
+    *pos = 0x48;
+    *(pos++) = 0x83;
+    *(pos++) = 0xc4;
+    *(pos++) = counter * 8;
+    pos++;
+}
+
+int find_var(char* name, Variables* arr_of_var) {
+    int i = 0;
+    while (arr_of_var[i].name_var != nullptr) {
+        if (!strcmp(arr_of_var[i].name_var, name))
+            return arr_of_var[i].place_var;
+        i++;
+    }
+    printf("I can't find this name %s", name);
+    abort();
+}
+
+void add() {
+    (*pos) = 0x58;// pop rax, pop rbx
+    *(pos++) = 0x5b;
+
+    *(pos++) = 0x48;// add rax, rbx
+    *(pos++) = 0x01;
+    *(pos++) = 0xd8;
+
+    *(pos++) = 0x50;// push rax
+
+    pos++;
+}
+
+void div() {
+    *(pos) = 0x58;// pop rax, pop rbx
+    *(pos++) = 0x5b;
+
+    *(pos++) = 0x52;// push rdx
+
+    *(pos++) = 0x48;// xor rdx, rdx
+    *(pos++) = 0x31;
+    *(pos++) = 0xd2;
+
+    *(pos++) = 0x48;// div rbx
+    *(pos++) = 0xf7;
+    *(pos++) = 0xf3;
+
+    *(pos++) = 0x5a;// pop rdx
+    *(pos++) = 0x50;// push rax
+}
+
+void cmp() {
+    *pos++ = 0x58; // pop rax
+    *pos++ = 0x5b; // pop rbx
+
+    *pos++ = 0x48; // cmp rax, rbx
+    *pos++ = 0x39;
+    *pos++ = 0xd8;
+
+}
+
+void sub() {
+    *pos++ = 0x58; // pop rax
+    *pos++ = 0x5b; // pop rbx
+
+    *pos++ = 0x48; // sub rax, rbx
+    *pos++ = 0x29;
+    *pos++ = 0xd8;
+
+    *pos++ = 0x50; // push rax
+}
 
 void mul() {
     *pos++ = 0x58; // pop rax
@@ -530,6 +787,13 @@ void scan() {
 }
 
 void print() {
+     *pos++ = 0xb8;
+    *pos++ = 0x34;
+    *pos++ = 0xb1;
+    *pos++ = 0x01;
+    *pos++ = 0x00;
+    *pos++ = 0x50;
+
     *pos++ = 0x55; //ahahahhahahhahahha
     *pos++ = 0x48; //ahahahhahahhahahha
     *pos++ = 0x89; //ahahahhahahhahahha

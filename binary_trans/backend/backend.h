@@ -54,9 +54,40 @@ void create_std_tree(tree_elem* pos, FILE* dot_out);
 
 void print_std_mode(tree_elem* pos, FILE* dot_out);
 
-void make_elf(Function* funcs, char* elf_name);
+void make_elf(Function* funcs, char* base_name, char* elf_name);
 
 char* translate_funcs(Function* funs);
+
+size_t Compile_tree(Function* curr_func, Function* func_table, char* start_pos);
+
+void push_func_addr(char* name, Function* func_table, char* start_pos);
+
+void transform_var_table(Function* curr_func);
+
+void compile_node(tree_elem* curr_node, Variables* arr_of_vars, Function* arr_of_func);
+
+void cut_stack(Variables* arr_of_vars);
+
+void aligh_stack(Variables* arr_of_vars);
+
+int find_var(char* name, Variables* arr_of_var);
+
+void add();
+
+void div();
+
+void cmp();
+
+void sub();
+
+void mul();
+
+void num();
+
+void scan();
+
+void print();
+
 
 
 #endif //BACKEND_BACKEND_H
