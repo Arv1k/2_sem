@@ -8,6 +8,8 @@ ALLCOMPFLAGS=-g -std=c++14 -Werror -fmax-errors=1 -Wall -Wextra -Weffc++ -Waggre
 hash_table: main.o hash_asm.o list.o enc.o
 	$(CPP) -pg -O0 -Wall main.o list.o enc.o hash_asm.o -o hash_table
 
+copy: hash_table
+	cp hash_table ../
 
 
 0: hash_table
@@ -36,6 +38,7 @@ valgrind: hash_table
 
 
 main.o: main.cpp
+	$(CPP) $(CPPFLAGS) main.cpp
 
 list.o: list/list.cpp
 	$(CPP) $(CPPFLAGS) list/list.cpp

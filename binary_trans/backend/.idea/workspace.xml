@@ -13,15 +13,11 @@
   <component name="ChangeListManager">
     <list default="true" id="60a8cbcb-fd51-47fb-8b2f-17530c1d4f6e" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Language/cmake-build-debug/CMakeFiles/Language.dir/language.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/../Language/cmake-build-debug/CMakeFiles/Language.dir/language.cpp.o" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Language/cmake-build-debug/Language" beforeDir="false" afterPath="$PROJECT_DIR$/../Language/cmake-build-debug/Language" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Language/dott.dot" beforeDir="false" afterPath="$PROJECT_DIR$/../Language/dott.dot" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Language/input" beforeDir="false" afterPath="$PROJECT_DIR$/../Language/input" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Language/language.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/../Language/language.cpp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Language/tree.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/../Language/tree.jpg" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/backend.cpp" beforeDir="false" afterPath="$PROJECT_DIR$/backend.cpp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend.h" beforeDir="false" afterPath="$PROJECT_DIR$/backend.h" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/backend.dir/backend.cpp.o" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/backend.dir/backend.cpp.o" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/cmake-build-debug/backend" beforeDir="false" afterPath="$PROJECT_DIR$/cmake-build-debug/backend" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/dott.dot" beforeDir="false" afterPath="$PROJECT_DIR$/dott.dot" afterDir="false" />
@@ -83,11 +79,8 @@
           <file pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/backend.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="1680">
-                  <caret line="70" column="4" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="4" />
-                  <folding>
-                    <element signature="e#54#94#0" expanded="true" />
-                  </folding>
+                <state relative-caret-position="120">
+                  <caret line="5" column="21" selection-start-line="5" selection-start-column="21" selection-end-line="5" selection-end-column="21" />
                 </state>
               </provider>
             </entry>
@@ -95,8 +88,8 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/backend.cpp">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="-2909">
-                  <caret line="839" column="11" selection-start-line="839" selection-start-column="11" selection-end-line="839" selection-end-column="11" />
+                <state relative-caret-position="185">
+                  <caret line="471" column="4" selection-start-line="471" selection-start-column="4" selection-end-line="471" selection-end-column="4" />
                 </state>
               </provider>
             </entry>
@@ -113,7 +106,7 @@
           <file pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/backend.h">
               <provider selected="true" editor-type-id="text-editor">
-                <state relative-caret-position="577">
+                <state relative-caret-position="812">
                   <caret line="98" column="46" selection-start-line="98" selection-start-column="46" selection-end-line="98" selection-end-column="46" />
                   <folding>
                     <element signature="e#54#94#0" expanded="true" />
@@ -141,7 +134,6 @@
       <find>0x45</find>
       <find>CounT</find>
       <find>get_tree()</find>
-      <find>pos</find>
       <find>i</find>
       <find>j</find>
       <find>k</find>
@@ -154,6 +146,7 @@
       <find>50</find>
       <find>5f</find>
       <find>89</find>
+      <find>pos</find>
     </findStrings>
     <replaceStrings>
       <replace>M_I</replace>
@@ -198,36 +191,12 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="backend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="backend" type="47feb1d3:ProjectViewModuleNode" />
-            </path>
-            <path>
-              <item name="backend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="backend" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="backend" type="b2602c69:ProjectViewProjectNode" />
-              <item name="backend" type="47feb1d3:ProjectViewModuleNode" />
-              <item name="backend" type="462c0819:PsiDirectoryNode" />
-              <item name="tree" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="Scope" />
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Cpp-course/game_sfml" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
   </component>
@@ -244,7 +213,7 @@
     </option>
   </component>
   <component name="RunManager">
-    <configuration name="backend" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="$PROJECT_DIR$/../Obj.txt $PROJECT_DIR$/dott.dot $PROJECT_DIR$/test $PROJECT_DIR$/hey_you" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="backend" TARGET_NAME="backend" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="backend" RUN_TARGET_NAME="backend">
+    <configuration name="backend" type="CMakeRunConfiguration" factoryName="Application" PROGRAM_PARAMS="$PROJECT_DIR$/../std_tree $PROJECT_DIR$/dott.dot $PROJECT_DIR$/test $PROJECT_DIR$/hey_you" WORKING_DIR="file://$PROJECT_DIR$" PASS_PARENT_ENVS_2="true" PROJECT_NAME="backend" TARGET_NAME="backend" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="backend" RUN_TARGET_NAME="backend">
       <method v="2">
         <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
@@ -265,16 +234,16 @@
       <workItem from="1558358751545" duration="5042000" />
       <workItem from="1558364412546" duration="10513000" />
       <workItem from="1558376185334" duration="3802000" />
-      <workItem from="1558380003372" duration="3474000" />
+      <workItem from="1558380003372" duration="5608000" />
+      <workItem from="1560206370260" duration="21000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="63229000" />
+    <option name="totallyTimeSpent" value="65384000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="-1" width="1920" height="1080" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info id="Favorites" order="0" side_tool="true" weight="0.3299356" />
       <window_info content_ui="combo" id="Project" order="1" weight="0.1668455" />
@@ -324,15 +293,6 @@
     <option name="version" value="1" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="com.jetbrains.cidr.execution.debugger.OCBreakpointType">
-          <url>file://$PROJECT_DIR$/backend.cpp</url>
-          <line>32</line>
-          <option name="timeStamp" value="29" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <watches-manager>
       <configuration name="CMakeRunConfiguration">
         <watch expression="func_table[1]" language="ObjectiveC" />
@@ -414,9 +374,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/main.cpp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="456">
@@ -424,10 +381,13 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/backend.h">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1680">
-          <caret line="70" column="4" selection-start-line="70" selection-start-column="4" selection-end-line="70" selection-end-column="4" />
+        <state relative-caret-position="812">
+          <caret line="98" column="46" selection-start-line="98" selection-start-column="46" selection-end-line="98" selection-end-column="46" />
           <folding>
             <element signature="e#54#94#0" expanded="true" />
           </folding>
@@ -436,8 +396,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/backend.cpp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2909">
-          <caret line="839" column="11" selection-start-line="839" selection-start-column="11" selection-end-line="839" selection-end-column="11" />
+        <state relative-caret-position="16776">
+          <caret line="699" selection-start-line="699" selection-end-line="699" />
         </state>
       </provider>
     </entry>

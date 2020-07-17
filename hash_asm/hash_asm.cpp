@@ -1,6 +1,15 @@
 #include "hash_asm.h"
 
-
+unsigned long curr_tick_num() {
+    unsigned int High, Low;
+    asm volatile(   ".intel_syntax noprefix\n\t"
+                    "RDTSC\n\t"
+                    ".att_syntax prefix\n\t"
+    :"=a"(Low), "=d"(High)
+    :
+    :"cc");
+    return ((unsigned long)High << 32 | Low);
+}
 
 int GNU_hash(const char* string, char stopper) {
     //assert(string);
@@ -31,7 +40,16 @@ char* find_word(const list* hash_table, const char* word) {
     size_t cur_count = hash_table[hash_sum].size(); //!
     list_elem* cur_elem = hash_table[hash_sum].head(); //!
 
-    return search_comp(cur_count, cur_elem, word);
+    //FILE* ticks = fopen("ticks.txt", "a+");
+
+    unsigned long you = curr_tick_num();
+    char* hey = search_comp(cur_count, cur_elem, word);
+    you = curr_tick_num() - you;
+
+    printf("%ld\n", you);
+
+    //fclose(ticks);
+    return hey;
 }
 
 // char* search_comp(size_t cur_count, list_elem* cur_elem, const char* word) {

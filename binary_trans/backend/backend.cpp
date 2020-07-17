@@ -33,11 +33,11 @@ void make_std(char* buffer, Function* funcs) {
 
         char *tmp = pc;
         pc = strchr(pc, '(');
-        *(pc - 2) = '\0';
+        *(pc - 1) = '\0';
 
 
         funcs[ipert].name = strdup(tmp);
-        *(pc - 2) = ' ';
+        *(pc - 1) = ' ';
         *pc++ = '(';
         pc++;
 
@@ -469,7 +469,7 @@ void make_elf(Function* funcs, char* base_name, char* elf_name) {
     }
 
     FILE* maxu = fopen(elf_name, "wb");
-    fwrite(buffer, sizeof(char), num_symbols, maxu);
+        fwrite(buffer, sizeof(char), num_symbols, maxu);
     fclose(maxu);
 
     free(buffer);
@@ -633,7 +633,7 @@ void compile_node(tree_elem* curr_node, Variables* arr_of_vars, Function* arr_of
             save_registers(arr_of_vars);
             *pos++ = 0xe8;
 
-            *((int*) pos) = find_add_func(curr_node->Info.name, arr_of_func) - (pos + 4);
+            *((int*) pos) = find_add_func(curr_node->Info.name, arr_of_func) - (pos + 8);
             pos += 4;
             return_registers(arr_of_vars);
             *pos++ = 0x50;

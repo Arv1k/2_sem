@@ -450,21 +450,21 @@ strChr:		push rbx
 
 repeat:		mov bl, [rdi]
 
-		cmp bl, al
-		je found
+			cmp bl, al
+			je found
 
-		cmp bl, 0
-		je notFound
+			cmp bl, 0
+			je notFound
 
-		inc rdi
-		jmp repeat
+			inc rdi
+			jmp repeat
 
 notFound:	pop rbx
-		xor rdi, rdi
-		ret
+			xor rdi, rdi
+			ret
 
 found:		pop rbx
-		ret
+			ret
 
 
 

@@ -34,8 +34,8 @@ int main(int argc, char* argv[]) {
         while (tmp->String) {
             hey = find_word(hash_table, tmp->String);
 
-            if (hey) printf("%s\n", hey);
-            else     printf("Nope!\n");
+            // if (hey) /*printf("%s\n", hey)*/;
+            // else     //printf("Nope!\n");
 
             tmp++;
         }
