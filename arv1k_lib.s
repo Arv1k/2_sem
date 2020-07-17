@@ -319,11 +319,11 @@ toHex:		xor rdx, rdx
 
 		jmp ifindU
 
-Dec:		mov rax, [rbp + r12]
+Dec:	mov rax, [rbp + r12]
 		xor r11, r11
 		mov r11, bufSize - 1
 
-toDec:		xor rdx, rdx
+toDec:	xor rdx, rdx
 		mov rbx, 10
 
 		div rbx
@@ -361,7 +361,7 @@ toDec:		xor rdx, rdx
 		jmp ifindU
 
 
-Str:		mov rsi, [rbp + r12]
+Str:	mov rsi, [rbp + r12]
 		mov rdi, rsi
 
 		mov rax, 0x00
@@ -450,21 +450,21 @@ strChr:		push rbx
 
 repeat:		mov bl, [rdi]
 
-			cmp bl, al
-			je found
+		cmp bl, al
+		je found
 
-			cmp bl, 0
-			je notFound
+		cmp bl, 0
+		je notFound
 
-			inc rdi
-			jmp repeat
+		inc rdi
+		jmp repeat
 
 notFound:	pop rbx
-			xor rdi, rdi
-			ret
+		xor rdi, rdi
+		ret
 
 found:		pop rbx
-			ret
+		ret
 
 
 
